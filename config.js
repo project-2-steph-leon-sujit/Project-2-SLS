@@ -8,7 +8,9 @@ let config = {
 
         },
         prod:{
-                mysql:{},
+                mysql:{
+                    url: process.env.JAWSDB_URL
+                },
                 apiKeys:{}
         }
     }
