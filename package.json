@@ -1,0 +1,22 @@
+{
+  "name": "Project-2-SLS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-2-steph-leon-sujit/Project-2-SLS.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project-2-steph-leon-sujit/Project-2-SLS/issues"
+  },
+  "homepage": "https://github.com/project-2-steph-leon-sujit/Project-2-SLS#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
