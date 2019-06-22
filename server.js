@@ -16,3 +16,4 @@ app.listen(port);
 app.route('/').get(function(request, response) {
     response.json(config);
 });
+
