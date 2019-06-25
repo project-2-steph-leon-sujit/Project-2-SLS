@@ -15,4 +15,8 @@ app.listen(port);
 //@TODO Delete below after you verify the the app is working
 app.route('/').get(function(request, response) {
     response.json(config);
+
+
+
 });
+
