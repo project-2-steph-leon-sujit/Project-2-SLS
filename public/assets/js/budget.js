@@ -15,6 +15,13 @@ $("#budget-submit").on("click", function(event){
     };
 
     console.log(newExpense);
+
+    //empty input boxes on submit to clear form
+    $("#inputName").val("");
+    $("#inputAmount").val("");
+    $("#inputCategory").val("");
+    $("#inputDescription").val("");
+    
 });
 
 //function to handle what happens when submit button is clicked to create new expense
