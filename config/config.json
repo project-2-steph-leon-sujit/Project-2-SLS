@@ -1,7 +1,7 @@
 {
     "development": {
-        "username": "root",
-        "password": "m1ntch1p",
+        "username": "budget",
+        "password": "budget",
         "database": "budget",
         "host": "127.0.0.1",
         "port": 3306,
