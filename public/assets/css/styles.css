@@ -1,0 +1,148 @@
+/* ============================= GLOBAL =============================== */
+body {
+    background-color: #F4F4F4;
+}
+
+h1, h2, h3, h4, p, button {
+    color: #040130;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 40px;
+}
+h2 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 20px;
+}
+h4 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color: #040130;
+}
+
+.footer-p {
+    color: #ffffff!important;
+    font-size: 12px;
+}
+/* ============================= HEADER =============================== */
+.savvie-nav-bar {
+    background-color: #040130;
+    height:80px;
+    padding: 10px 50px 10px 50px;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+
+.logo-image {
+    max-width: 120px;
+}
+
+.settings-icon {
+    max-width: 25px;
+}
+
+.nav-link {
+    padding-left: 50px!important;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* ============================= BUDGET PAGE =============================== */
+
+/* Containers */
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.budget-card {
+    background-color: #fff;
+    box-shadow: 4px 4px 8px 0px #ccc;
+    margin-right: 10px;
+    padding: 30px;
+}
+
+.tips-card {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+    margin-left: 10px;
+    padding: 30px;
+}
+
+/* Budget Table */
+.table {
+    margin-top: 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #040130
+}
+
+/* Budget Info */
+.budget-overview {
+    display: flex;
+    justify-content: space-around;
+}
+
+.income, .expenses, .budget-categories {
+    padding: 20px;
+}
+
+.update-button, .delete-button {
+    color:#ffffff;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    border:none;
+    margin: 3px;
+}
+
+.update-button {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+}
+
+.delete-button {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #ED1C24, #FCEE21
+    );
+}
+
+/* ============================= HOME PAGE =============================== */
+
+/* FORM */
+form {
+    margin: 0 auto;
+}

@@ -4,20 +4,31 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 9000;
 // var config = require('./config/config.json');
-
-
-
-app.use(express.static(__dirname + '/views')); // you should change this to be wherever your html files are
-
-// Requiring our models for syncing
-var db = require("./models");
+var router = express.Router();
+var path = require("path");
 
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, '/public')));
+
+var hbs = require("express-handlebars");
+
+app.set("view engine", "hbs");
+app.engine('hbs', hbs( {
+        extname: 'hbs',
+        defaultView: "main",
+        layoutsDir: __dirname + '/views/pages/',
+        partialsDir: __dirname + '/views/partials/' 
+    }));
+
+
+// app.use(express.static(__dirname + '/views')); // you should change this to be wherever your html files are
+
+// Requiring our models for syncing
+var db = require("./models");
 
 require("./routes/budget-api-routes.js")(app);
 
