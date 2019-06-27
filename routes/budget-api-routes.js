@@ -4,6 +4,7 @@ module.exports = function(app) {
 
     app.get("/api/budgets", function(req, res){
         console.log("this is hit");
+        res.end();
     })
 
     // app.post("/api/budget", function(req, res) {
@@ -12,6 +13,7 @@ module.exports = function(app) {
     //       res.json(dbBudget);
     //     });
     //   });
+    
   };
   
 
