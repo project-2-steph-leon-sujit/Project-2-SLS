@@ -146,3 +146,12 @@ p {
 form {
     margin: 0 auto;
 }
+
+/* ============================= CHART =============================== */
+.chart--container {
+	height:100%;
+	width:100%;
+	min-height:150px;
+}
+
+.zc-ref { display:none; }
