@@ -15,7 +15,10 @@ module.exports = function (app) {
     });
 
     // Add new budget entry
-    app.post('/api/data/friends', function (req, res) {
+    app.post('/api/budget', function (req, res) {
+      db.Post.create(req.body).then(function(dbPost) {
+        res.json(dbPost)
+      })
 
 
 
