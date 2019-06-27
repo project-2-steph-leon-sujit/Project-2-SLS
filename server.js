@@ -1,9 +1,10 @@
 require('dotenv').config();
 
-var express = require('express');
+var express = require('express'); 
 var app = express();
 var PORT = process.env.PORT || 9000;
 // var config = require('./config/config.json');
+
 
 
 app.use(express.static(__dirname + '/views')); // you should change this to be wherever your html files are
