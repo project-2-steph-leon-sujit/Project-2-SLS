@@ -2,30 +2,36 @@
 
 
 module.exports = function(sequelize, DataTypes) {
-    var Budget = sequelize.define("Budget", {
-      category: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      expense: {
-        type: DataTypes.STRING,
-        defaultValue: "Personal"
-      },
-      date: {
-        type: DataTypes.STRING,
-        defaultValue: "Personal"
+  var Budget = sequelize.define("Budget", {
+
+//TODO: Create the CRUD operations
+      //The category lists the category of each transaction
+    category: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
       }
-    });
-    return Post;
-  };
-  
+    },
+    //Description: describes the item
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    //Cost of item. Negative for an expense, positive for income.
+    expense: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+  },
+    //TODO: find a way to add the date to each transaction. 
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+  }
+  });
+  return Budget;
+};
+
