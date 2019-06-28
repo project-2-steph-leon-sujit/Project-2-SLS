@@ -25,12 +25,11 @@ module.exports = function(sequelize, DataTypes) {
     expense: {
       type: DataTypes.INTEGER,
       allowNull: false
-  },
-    //TODO: find a way to add the date to each transaction. 
-    date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
   }
+    //TODO: find a way to add the date to each transaction. 
+  //   created_at: {
+  //     type: DataTypes.DATE,
+  // }
   });
   return Budget;
 };
