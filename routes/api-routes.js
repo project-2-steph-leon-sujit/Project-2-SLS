@@ -1,26 +1,18 @@
 // Pull in required dependencies
 var path = require('path');
-
-// Import the list of budget entries
-
 var db = require("../models/");
+
 
 // Export API routes
 module.exports = function (app) {
-    // console.log('___ENTER apiRoutes.js___');
 
-    // Total list of budget entries
-    app.get('/api/models/budget', function (req, res) {
+      // Total list of budget entries
+      app.get('/api/models/budget', function (req, res) {
         res.json(budget);
 
-    });
+      });
 
-    // Add new budget entry
-    // app.post('/api/budget', function (req, res) {
-    //   db.Post.create(req.body).then(function(dbPost) {
-    //     res.json(dbPost)
-    //   })
-
+      //POST new expense/income
       app.post("/api/new", function(req, res) {
 
         console.log("Budget Data:");

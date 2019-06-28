@@ -28,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    
     //Cost of item. Negative for an expense, positive for income.
     expense: {
       type: DataTypes.INTEGER,
