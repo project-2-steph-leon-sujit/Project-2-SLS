@@ -5,7 +5,14 @@ module.exports = function(sequelize, DataTypes) {
   var Budget = sequelize.define("Budget", {
 
 //TODO: Create the CRUD operations
-      //The category lists the category of each transaction
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },  
+//The category lists the category of each transaction
     category: {
       type: DataTypes.TEXT,
       allowNull: false,
