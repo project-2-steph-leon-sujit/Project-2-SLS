@@ -2,7 +2,8 @@
 var path = require('path');
 
 // Import the list of budget entries
-var budget = require('../models/budget.js');
+
+var db = require("../models/");
 
 // Export API routes
 module.exports = function (app) {
@@ -25,15 +26,17 @@ module.exports = function (app) {
         console.log("Budget Data:");
         console.log(req.body);
     
-        db.budget.create({
+        db.Budget.create({
           name: req.body.name,
-          amount: req.body.amount,
+          expense: req.body.amount,
           category: req.body.category,
           description: req.body.description,
-          created_at: req.body.created_at
+          date: req.body.created_at
         }).then(function(results) {
           // `results` here would be the newly created budget
-          res.end();
+          // res.end();
+          console.log(results);
+          console.log("this is coming from the database");
         });
     
       });
@@ -47,9 +50,9 @@ module.exports = function (app) {
 
 
 
-    // Add new user
-		budget.push(userInput);
+    // // Add new user
+		// budget.push(userInput);
 
-    // Send appropriate response
-    res.json({ status: 'OK', matchName: matchName, matchImage: matchImage });
+    // // Send appropriate response
+    // res.json({ status: 'OK', matchName: matchName, matchImage: matchImage });
 

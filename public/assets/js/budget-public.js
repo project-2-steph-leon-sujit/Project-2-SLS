@@ -30,6 +30,6 @@ $("#budget-submit").on("click", function(event){
 //function to handle what happens when submit button is clicked to create new expense
 function submitBudget(Budget) {
     $.post("/api/new/", Budget, function() {
-      window.location.reload();
+    //   window.location.reload();
     });
 };
