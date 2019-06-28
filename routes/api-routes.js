@@ -11,8 +11,8 @@ module.exports = function (app) {
 
     // Total list of budget entries
     app.get('/api/models/budget', function (req, res) {
+      
         res.json(budget);
-
     });
 
     // Add new budget entry
@@ -38,12 +38,7 @@ module.exports = function (app) {
           console.log(results);
           console.log("this is coming from the database");
         });
-    
-      });
-
-
-
-
+      });      
     }
 
 
