@@ -1,5 +1,6 @@
 //Get references to table where data will be displayed
 
+// ======================= FORM SUBMIT ==========================
 
 //add event listeners to form to create a new object
 $("#budget-submit").on("click", function(event){
@@ -27,9 +28,13 @@ $("#budget-submit").on("click", function(event){
     
 });
 
+// ======================= POST ==========================
+
 //function to handle what happens when submit button is clicked to create new expense
 function submitBudget(Budget) {
     $.post("/api/new/", Budget, function() {
     //   window.location.reload();
     });
 };
+
+// ======================= GET DATA FOR TABLES ==========================
