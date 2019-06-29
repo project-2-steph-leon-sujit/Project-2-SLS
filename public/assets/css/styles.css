@@ -35,7 +35,7 @@ footer {
     /* position: absolute; */
     width: 100%;
     bottom: 0;
-    height: 50px;
+    max-height: 10vh;
     line-height: 50px;
     background-color: #040130;
 }
@@ -110,8 +110,8 @@ footer {
 /* ============================= HEADER =============================== */
 .savvie-nav-bar {
     background-color: #040130;
-    height:80px;
-    padding: 10px 50px 10px 50px;
+    height:10vh;
+    padding: 10px 50px 0px 50px;
     /* display: flex;
     flex-direction: row;
     justify-content: space-between; */
@@ -138,32 +138,45 @@ footer {
 /* Containers */
 .content-container {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
+    padding: 20px;
 }
 
 .left-content {
-    width: 49vw;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     flex-direction: column;
+    /* padding-right: 10px; */
+    overflow: hidden;
+    padding-right: 10px;
 }
 
 
 .right-content {
-    width: 49vw;
+    width: 50%;
+    height: 100%;
+    /* padding-left: 10px; */
+    overflow: hidden;
+    padding-left: 10px;
 }
 
+.top-content {
+    margin-bottom: 20px;
+}
+
+.bottom-content {
+    margin-top: 20px;
+}
 .budget-card {
     background-color: #fff;
     box-shadow: 4px 4px 8px 0px #ccc;
-    /* margin-right: 10px; */
-    padding: 30px;
-    min-height: 200px;
     overflow: hidden;
+    height: 50%;
 }
 
 .tips-card {
@@ -172,9 +185,19 @@ footer {
       to top right, 
       #00A8C5, #FFFF7E
     );
-    /* margin-left: 10px; */
+    height: 50%;
+}
+.your-budget {
+
+}
+
+.savings-tips {
+
+}
+
+.spending-history {
+    margin-top: 20px;
     padding: 30px;
-    min-height: 200px;
 }
 
 /* Budget Table */
@@ -226,7 +249,7 @@ footer {
 form {
     margin: 0 auto;
     text-align: center;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 .expense-form {
@@ -236,22 +259,17 @@ form {
     align-content: center;
     align-items: center;
     padding: 100px;
-    height: 80vh;
-    margin-top: 20px;
-
+    height: 100%;
+    width: 100%;
 }
 
 .right-block {
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-content: center;
-    align-items: center; */
-    /* padding: 100px; */
     height: 40vh;
     width: 50vw;
-    margin-top: 20px;
-    /* margin-top: 20px; */
+    padding: 30px;
+
 }
 
 
@@ -267,4 +285,77 @@ form {
     display:none; 
     width: 100%;
     overflow: hidden;
+}
+
+
+/* ============================= ACCOUNT SETTINGS =============================== */
+.user-info, .budget-info {
+    text-decoration: none;
+    list-style-type: none;
+    padding-top: 20px;
+}
+
+.user-settings, .budget-settings {
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+.settings-block {
+    width: 50%;
+    overflow: hidden;
+    padding-right: 10px;
+    height: 90vh;
+
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-button {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+    color:#ffffff;
+    border-radius: 5px;
+    padding: 10px 30px 10px 30px;
+    border:none;
+    margin: 3px;
+}
+
+.content-padding {
+    padding: 30px;
+}
+.settings-edit-form {
+    width: 50%;
+    height: 90vh;
+    /* padding-left: 10px; */
+    overflow: hidden;
+    padding-left: 10px;
+}
+
+
+label {
+    padding-right: 0px!important;
+    text-align: right;
+    font-size: 12px!important;
+}
+
+.settings-form {
+    padding: 0px 20px 0px 20px;
+}
+.settings-form input {
+    font-size: 12px!important;
+}
+
+.settings-form h3 {
+    text-align: left!important;
+    padding: 10px 0px 10px 0px;
+}
+
+.settings-form form {
+    padding-top: 0px!important;
 }
