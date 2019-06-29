@@ -8,12 +8,17 @@ window.addEventListener('load', () => {
    var myConfig = {
        type: "gauge",
        globals: {
-         fontSize: 25
+         fontSize: 25,
+         marginBottom: 0,
+         paddingBottom: 0
        },
        plotarea:{
-         marginTop:80
+         marginTop:0,
+         marginBottom:0
        },
        plot:{
+         marginBottom: 0,
+         paddingBottom: 0,
          size:'100%',
          valueBox: {
            placement: 'center',

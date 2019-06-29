@@ -257,10 +257,12 @@ form {
 .chart--container {
 	height:100%;
 	width:100%;
-	min-height:300px;
+    min-height:300px;
+    overflow: hidden;
 }
 
 .zc-ref { 
     display:none; 
     width: 100%;
+    overflow: hidden;
 }
