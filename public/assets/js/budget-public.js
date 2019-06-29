@@ -84,7 +84,6 @@ function showAll() {
 
 
 
-
 function budgetAdder(){
     // function for adding two numbers. Easy!
     const add = (a, b) =>
@@ -111,16 +110,6 @@ function budgetAdder(){
 }
 
 // const catIncome = [10, 20, 30, 40] // sums to 100
-
-
-
-function yourBudget(){
-
-
-
-
-  
-}
 
 
 
