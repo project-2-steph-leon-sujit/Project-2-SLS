@@ -50,9 +50,7 @@ function showAll() {
       <tr>`
       $("#tableBody").append(budgetResults)
 
-
-
-
+//This will push the items in each category to its respective array------------------------------
       if (item.category == "income") {
         catIncome.push(item.expense)
       };
@@ -74,8 +72,20 @@ function showAll() {
        if (item.category == "vacation") {
         catVacation.push(item.expense)
       };
+//Above will push the items in each category to its respective array------------------------------
+
+//END OF .each loop
     })
 
+  budgetAdder();
+
+  });
+}
+
+
+
+
+function budgetAdder(){
     // function for adding two numbers. Easy!
     const add = (a, b) =>
       a + b
@@ -98,9 +108,7 @@ function showAll() {
     console.log("Sum of misc", miscSum);
     console.log("Sum of vacation", vacationSum);
     //TODO: *****STEPH****------------------------------------------------------------------
-  });
 }
-
 
 // const catIncome = [10, 20, 30, 40] // sums to 100
 
