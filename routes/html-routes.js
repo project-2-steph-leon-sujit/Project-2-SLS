@@ -11,7 +11,7 @@ module.exports = function (app) {
   });
 
   app.get("/index", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });     
  // blog route loads budget.html
  app.get("/budget", function(req, res) {
