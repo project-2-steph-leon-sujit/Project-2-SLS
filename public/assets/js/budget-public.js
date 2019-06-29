@@ -8,44 +8,89 @@ showAll();
 
 
 
-function showAll(){
-    console.log("showAll function is working");
+function showAll() {
+  console.log("showAll function is working");
 
-    $.get("/api/new", function(data) {
-      todos = data;
-      initializeRows();
-        // var rowsToAdd = [];
-        // for (var i = 0; i < data.length; i++) {
-        //   rowsToAdd.push(createAuthorRow(data[i]));
-        // }
-        // renderAuthorList(rowsToAdd);
-        // nameInput.val("");
-        console.log("This is 'todos'", todos)
-        
-        $("#leonTestContainer").text(data[0].category + "" + data[0].expense)
-      });
+  $.get("/api/new", function (data) {
+    // todos = data;
+    initializeRows();
+    // var rowsToAdd = [];
+    // for (var i = 0; i < data.length; i++) {
+    //   rowsToAdd.push(createAuthorRow(data[i]));
+    // }
+    // renderAuthorList(rowsToAdd);
+    // nameInput.val("");
+    // console.log("This is 'todos'", todos)
+
+
+    console.log("current data", data);
+
+
+    $.each(data, function (i, item) {
+
+
+      var budgetResults = `
+    <tr>
+      <td>${item.name}</td>
+      <td>${item.expense}</td>
+      <td>${item.description}</td>
+      <td>${item.category}</td>
+      <td>
+        <button type="button" class="update-button btn btn-sm m-0" id="update-button${i}">update</button>
+        <button type="button" class="delete-button btn btn-sm m-0" id="delete-button${i}">delete</button>
+      <td>
+      <tr>
+  `
+      $("#tableBody").append(budgetResults)
+
+    })
+
+  });
 }
 
 
-//TODO: Do i need a function to loop all the data and display in the #testName thing?
 
-//TODO: reference Sequelize Activity 9: toDo's. 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------------MAY NEED BELOW LATER
 
 function initializeRows() {
   console.log("todos length", todos.length); //TODO: this is working
-    $leonTestContainer.empty();
-    var rowsToAdd = [];
-    for (var i = 0; i < todos.length; i++) {
-      rowsToAdd.push(createNewRow(todos[i]));
-    }
-    $leonTestContainer.prepend(rowsToAdd);
-    console.log("this is rowsToAdd", rowsToAdd);
+  $leonTestContainer.empty();
+  var rowsToAdd = [];
+  for (var i = 0; i < todos.length; i++) {
+    rowsToAdd.push(createNewRow(todos[i]));
   }
+  $leonTestContainer.prepend(rowsToAdd);
+  console.log("this is rowsToAdd", rowsToAdd);
+}
 
 
- // This function constructs a todo-item row
- function createNewRow(todo) {
+// This function constructs a todo-item row
+function createNewRow(todo) {
   var $newInputRow = $(
     [
       "<li class='list-group-item todo-item'>",
