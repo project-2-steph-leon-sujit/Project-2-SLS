@@ -7,10 +7,15 @@ var db = require("../models/");
 module.exports = function (app) {
 
     // Total list of budget entries
-    app.get('/api/models/budget', function (req, res) {
-      
-        res.json(budget);
-    });
+    app.get('/api/new', function (req, res) {
+        console.log("this is hit");
+
+        db.Budget.findAll({}).then(function(result){
+            res.json(result);
+        })
+        // res.end();
+    })
+       
 
     // Add new budget entry
     // app.post('/api/budget', function (req, res) {
