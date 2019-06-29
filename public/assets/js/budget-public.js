@@ -1,7 +1,18 @@
 //Initial Budget array
-var budgetArray = [];
-var $leonTestContainer = $("#leonTestContainer"); //TODO TESTING
-var todos = []
+var budgetArray = []; //TODO TESTING not in use
+var $leonTestContainer = $("#leonTestContainer"); //TODO TESTING not in use
+var todos = [] //TODO TESTING not in use
+
+//For /budget this shows upper left box. Start at [0,0] so reduce function works. 
+var catIncome = [0, 0]
+var catRent = [0, 0]
+var catFood = [0, 0]
+var catEntertainment = [0, 0]
+var catPets = [0, 0]
+var catMisc = [0, 0]
+var catVacation = [0, 0]
+
+
 
 //Getting all budgets from database when page loads
 showAll();
@@ -22,13 +33,10 @@ function showAll() {
     // nameInput.val("");
     // console.log("This is 'todos'", todos)
 
-
     console.log("current data", data);
 
-
+    //A loop to dynamically create a table with update and delete buttons
     $.each(data, function (i, item) {
-
-
       var budgetResults = `
     <tr>
       <td>${item.name}</td>
@@ -39,20 +47,72 @@ function showAll() {
         <button type="button" class="update-button btn btn-sm m-0" id="update-button${i}">update</button>
         <button type="button" class="delete-button btn btn-sm m-0" id="delete-button${i}">delete</button>
       <td>
-      <tr>
-  `
+      <tr>`
       $("#tableBody").append(budgetResults)
 
+
+
+
+      if (item.category == "income") {
+        catIncome.push(item.expense)
+      };
+      if (item.category == "rent") {
+        catRent.push(item.expense)
+      };
+      if (item.category == "food") {
+        catFood.push(item.expense)
+      }; 
+      if (item.category == "entertainment") {
+        catEntertainment.push(item.expense)
+      }; 
+      if (item.category == "pets") {
+        catPets.push(item.expense)
+      };
+       if (item.category == "misc") {
+        catMisc.push(item.expense)
+      };
+       if (item.category == "vacation") {
+        catVacation.push(item.expense)
+      };
     })
 
+    // function for adding two numbers. Easy!
+    const add = (a, b) =>
+      a + b
+    // use reduce to sum our array
+
+    var incomeSum = catIncome.reduce(add)
+    var rentSum = catRent.reduce(add)
+    var foodSum = catFood.reduce(add)
+    var entertainmentSum = catEntertainment.reduce(add)
+    var petsSum = catPets.reduce(add)
+    var miscSum = catMisc.reduce(add)
+    var vacationSum = catVacation.reduce(add)
+
+    //TODO: *****STEPH**** You can use these variables information to display the sum of each category
+    console.log("Sum of income", incomeSum);
+    console.log("Sum of rent", rentSum);
+    console.log("Sum of food", foodSum);
+    console.log("Sum of entertainment", entertainmentSum);
+    console.log("Sum of pets", petsSum);
+    console.log("Sum of misc", miscSum);
+    console.log("Sum of vacation", vacationSum);
+    //TODO: *****STEPH****------------------------------------------------------------------
   });
 }
 
 
+// const catIncome = [10, 20, 30, 40] // sums to 100
+
+
+
+function yourBudget(){
 
 
 
 
+  
+}
 
 
 
