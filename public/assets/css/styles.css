@@ -44,6 +44,68 @@ p {
     color: #ffffff!important;
     font-size: 12px;
 }
+
+/* ============================= SIGN IN PAGE =============================== */
+.sign-in {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sign-in-left {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 50vw;
+}
+
+.sign-in-logo {
+    margin: 0 auto;
+    top: 50%;
+}
+
+.sign-in-right {
+    width: 50vw;
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.sign-in-form {
+    text-align: center;
+
+}
+
+.sign-in-form input {
+    min-width: 350px;
+    min-height: 50px;
+    color: #040130!important;
+    border: none;
+    box-shadow: 4px 4px 8px 0px rgba(68,68,68,0.2);
+
+}
+
+.sign-in-button {
+    background-color:#040130;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px;
+    border:none;
+    margin: 3px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+
+
 /* ============================= HEADER =============================== */
 .savvie-nav-bar {
     background-color: #040130;
