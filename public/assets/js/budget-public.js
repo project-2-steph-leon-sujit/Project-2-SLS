@@ -1,41 +1,25 @@
-//Get references to table where data will be displayed
+showAll();
 
-// ======================= FORM SUBMIT ==========================
 
-//add event listeners to form to create a new object
-$("#budget-submit").on("click", function(event){
-    event.preventDefault();
+function showAll(){
+    console.log("showAll is working");
 
-    //make new expense object
-    var newExpense = {
-        name: $("#inputName").val().trim(),
-        amount: $("#inputAmount").val().trim(),
-        category:$("#inputCategory").val().trim(),
-        description: $("#inputDescription").val().trim(),
-        created_at: moment().format("YYYY-MM-DD HH:mm:ss")
-    };
+    $.get("/api/new", function(data) {
+        // var rowsToAdd = [];
+        // for (var i = 0; i < data.length; i++) {
+        //   rowsToAdd.push(createAuthorRow(data[i]));
+        // }
+        // renderAuthorList(rowsToAdd);
+        // nameInput.val("");
+        console.log(data);
 
-    console.log(newExpense);
 
-    //empty input boxes on submit to clear form
-    $("#inputName").val("");
-    $("#inputAmount").val("");
-    $("#inputCategory").val("");
-    $("#inputDescription").val("");
+        $("#testName").text(data[0].category + "" + data[0].expense)
 
-    //submits new expense and reloads the page
-   submitBudget(newExpense);
-    
-});
+      });
 
-// ======================= POST ==========================
+// $("#testName").text("hey you ");
 
-//function to handle what happens when submit button is clicked to create new expense
-function submitBudget(Budget) {
-    $.post("/api/new/", Budget, function() {
-    //   window.location.reload();
-    });
-};
 
-// ======================= GET DATA FOR TABLES ==========================
-//adding something for shits and giggles
+}
+
