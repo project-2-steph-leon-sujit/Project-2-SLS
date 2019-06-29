@@ -34,6 +34,7 @@ $("#budget-submit").on("click", function(event){
 function submitBudget(callback) {
     $.post("/api/new/", callback, function() {
     //   window.location.reload();
+        console.log("this is working?")
     });
 };
 
