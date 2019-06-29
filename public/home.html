@@ -78,90 +78,58 @@
     </div>
     
   <!-- ============================= HOME PAGE CONTENT =============================== -->
-<div class="container content-container">
+<div class="content-container">
     
     <!-- ADD NEW EXPENSE/INCOME BLOCK -->
-    <div class="col-lg-8 col-md-8 col-sm-12 budget-card">
-            <h1 id="user-name">Welcome, Steph Sapp</h1>
+    <div class="left-content">
     
-    <form>
-        <div class="form-row">
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputName" placeholder="name">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputAmount" placeholder="amount">
-                </div>
-            <div class="form-group">
-                <select id="inputCategory" class="form-control" placeholder="category">
-                <option selected>category</option>
-                <option>income</option>
-                <option>rent</option>
-                <option>food</option>
-                <option>entertainment</option>
-                <option>pets</option>
-                <option>misc</option>
-                </select>
-            </div>
-            </div>
+    <div class="expense-form tips-card">
+        <h1 id="user-name">Welcome, Steph Sapp</h1>
+        <h4>add a new transaction</h4>
+        <form>
             <div class="form-row">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="inputDescription" placeholder="description">
+                    <input type="text" class="form-control" id="inputName" placeholder="name">
                 </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary update-button" id="budget-submit">submit</button>
-            </div>
-        </form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputAmount" placeholder="amount">
+                    </div>
+                <div class="form-group">
+                    <select id="inputCategory" class="form-control" placeholder="category">
+                    <option selected>category</option>
+                    <option>income</option>
+                    <option>rent</option>
+                    <option>food</option>
+                    <option>entertainment</option>
+                    <option>pets</option>
+                    <option>misc</option>
+                    </select>
+                </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputDescription" placeholder="description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary sign-in-button" id="budget-submit">submit</button>
+                </div>
+            </form>
+    </div>
     </div>
 
-    <!-- USER INFO BLOCK -->
-    <div class="col-lg-4 col-md-4 col-sm-12 tips-card">
-        <h3 id="user-name">User Name</h3>
+    <div class="right-content">
+        <div>
+            <!-- USER INFO BLOCK -->
+            <div class="budget-card right-block">
+                <h3 id="user-name">User Name</h3>
+            </div>
         </div>
-    </div>
-
-    <div class="container content-container">
-
-        <!-- TRANSACTION HISTORY BLOCK -->
-        <div class="col-lg-8 col-md-8 col-sm-12 budget-card">
-            <h2>Recent Spending</h2>
-            <div class="data-tables">
-                <table id="dataTable" class="table table-responsive-md btn-table" >
-                    <thead class="">
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Category</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>   
-        </div>
-
+    
+        
+    
         <!-- GOAL PROGRESS CHART BLOCK -->
-        <div class="col-lg-4 col-md-4 col-sm-12 budget-card">
+        <div class="budget-card right-block">
             <h2 id="user-name">Goal Progress</h2>
             
             <!-- CHART CONTAINER -->
@@ -170,8 +138,12 @@
             </div>
 
         </div>
-
+            
     </div>
+
+</div>
+
+
 
   <!-- ============================= FOOTER =============================== -->
     <footer class="footer">

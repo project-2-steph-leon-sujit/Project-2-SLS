@@ -137,16 +137,31 @@ p {
 /* Containers */
 .content-container {
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
+    justify-content: flex-start;
+}
+
+.left-content {
+    width: 49vw;
+    display: flex;
     justify-content: center;
-    padding-top: 20px;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.right-content {
+    width: 49vw;
 }
 
 .budget-card {
     background-color: #fff;
     box-shadow: 4px 4px 8px 0px #ccc;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     padding: 30px;
+    min-height: 200px;
 }
 
 .tips-card {
@@ -155,8 +170,9 @@ p {
       to top right, 
       #00A8C5, #FFFF7E
     );
-    margin-left: 10px;
+    /* margin-left: 10px; */
     padding: 30px;
+    min-height: 200px;
 }
 
 /* Budget Table */
@@ -207,13 +223,44 @@ p {
 /* FORM */
 form {
     margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
 }
+
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 100px;
+    height: 80vh;
+    margin-top: 20px;
+
+}
+
+.right-block {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-content: center;
+    align-items: center; */
+    /* padding: 100px; */
+    height: 40vh;
+    width: 50vw;
+    margin-top: 20px;
+    /* margin-top: 20px; */
+}
+
 
 /* ============================= CHART =============================== */
 .chart--container {
 	height:100%;
 	width:100%;
-	min-height:150px;
+	min-height:300px;
 }
 
-.zc-ref { display:none; }
+.zc-ref { 
+    display:none; 
+    width: 100%;
+}
