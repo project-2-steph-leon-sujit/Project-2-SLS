@@ -1,0 +1,270 @@
+/* ============================= GLOBAL =============================== */
+body {
+    background-color: #F4F4F4;
+}
+
+h1, h2, h3, h4, p, button {
+    color: #040130;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 40px;
+}
+h2 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 20px;
+}
+h4 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+footer {
+    /* position: absolute; */
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color: #040130;
+}
+
+.footer-p {
+    color: #ffffff!important;
+    font-size: 12px;
+    margin-bottom:0px;
+}
+
+/* ============================= SIGN IN PAGE =============================== */
+.sign-in {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sign-in-left {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 50vw;
+}
+
+.sign-in-logo {
+    margin: 0 auto;
+    top: 50%;
+}
+
+.sign-in-right {
+    width: 50vw;
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.sign-in-form {
+    text-align: center;
+
+}
+
+.sign-in-form input {
+    min-width: 350px;
+    min-height: 50px;
+    color: #040130!important;
+    border: none;
+    box-shadow: 4px 4px 8px 0px rgba(68,68,68,0.2);
+
+}
+
+.sign-in-button {
+    background-color:#040130;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px;
+    border:none;
+    margin: 3px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+
+
+/* ============================= HEADER =============================== */
+.savvie-nav-bar {
+    background-color: #040130;
+    height:80px;
+    padding: 10px 50px 10px 50px;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+
+.logo-image {
+    max-width: 120px;
+}
+
+.settings-icon {
+    max-width: 25px;
+}
+
+.nav-link {
+    padding-left: 50px!important;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* ============================= BUDGET PAGE =============================== */
+
+/* Containers */
+.content-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.left-content {
+    width: 49vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.right-content {
+    width: 49vw;
+}
+
+.budget-card {
+    background-color: #fff;
+    box-shadow: 4px 4px 8px 0px #ccc;
+    /* margin-right: 10px; */
+    padding: 30px;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.tips-card {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+    /* margin-left: 10px; */
+    padding: 30px;
+    min-height: 200px;
+}
+
+/* Budget Table */
+.table {
+    margin-top: 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #040130
+}
+
+/* Budget Info */
+.budget-overview {
+    display: flex;
+    justify-content: space-around;
+}
+
+.income, .expenses, .budget-categories {
+    padding: 20px;
+}
+
+.update-button, .delete-button {
+    color:#ffffff;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    border:none;
+    margin: 3px;
+}
+
+.update-button {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #00A8C5, #FFFF7E
+    );
+}
+
+.delete-button {
+    background-image:
+    linear-gradient(
+      to top right, 
+      #ED1C24, #FCEE21
+    );
+}
+
+/* ============================= HOME PAGE =============================== */
+
+/* FORM */
+form {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 100px;
+    height: 80vh;
+    margin-top: 20px;
+
+}
+
+.right-block {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-content: center;
+    align-items: center; */
+    /* padding: 100px; */
+    height: 40vh;
+    width: 50vw;
+    margin-top: 20px;
+    /* margin-top: 20px; */
+}
+
+
+/* ============================= CHART =============================== */
+.chart--container {
+	height:100%;
+	width:100%;
+    min-height:300px;
+    overflow: hidden;
+}
+
+.zc-ref { 
+    display:none; 
+    width: 100%;
+    overflow: hidden;
+}
