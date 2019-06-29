@@ -6,11 +6,17 @@ var db = require("../models/");
 // Export API routes
 module.exports = function (app) {
 
-      // Total list of budget entries
-      app.get('/api/models/budget', function (req, res) {
+    // Total list of budget entries
+    app.get('/api/models/budget', function (req, res) {
+      
         res.json(budget);
+    });
 
-      });
+    // Add new budget entry
+    // app.post('/api/budget', function (req, res) {
+    //   db.Post.create(req.body).then(function(dbPost) {
+    //     res.json(dbPost)
+    //   })
 
       //POST new expense/income
       app.post("/api/new", function(req, res) {
@@ -30,12 +36,7 @@ module.exports = function (app) {
           console.log(results);
           console.log("this is coming from the database");
         });
-    
-      });
-
-
-
-
+      });      
     }
 
 
