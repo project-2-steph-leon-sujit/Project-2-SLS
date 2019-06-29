@@ -32,7 +32,7 @@ p {
 }
 
 .footer {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     bottom: 0;
     height: 50px;
@@ -43,6 +43,7 @@ p {
 .footer-p {
     color: #ffffff!important;
     font-size: 12px;
+    margin-bottom:0px;
 }
 
 /* ============================= SIGN IN PAGE =============================== */
