@@ -36,24 +36,16 @@ $("#edit-settings-button").on("click", function(event){
 
     //get new variables from form
 
-    var newSettings = {
-        rent: $("#inputRent").val().trim(),
-        food: $("#inputFood").val().trim(),
-        entertainment: $("#inputEnt").val().trim(),
-        pets: $("#inputPets").val().trim(),
-        misc: $("#inputMisc").val().trim()
-    }
-    // var userName = $("#inputUserName").val().trim();
-    // var profilePic = $("#inputProfilePic").val().trim();
-    // var income = $("#inputIncome").val().trim();
 
-    // var rent = $("#inputRent").val().trim();
-    // var food = $("#inputFood").val().trim();
-    // var entertainment = $("#inputEnt").val().trim();
-    // var pets = $("#inputPets").val().trim();
-    // var misc = $("#inputMisc").val().trim();
+    var userName = $("#inputUserName").val().trim();
+    var profilePic = $("#inputProfilePic").val().trim();
+    var income = $("#inputIncome").val().trim();
 
-    console.log(newSettings);
+    var rent = $("#inputRent").val().trim();
+    var food = $("#inputFood").val().trim();
+    var entertainment = $("#inputEnt").val().trim();
+    var pets = $("#inputPets").val().trim();
+    var misc = $("#inputMisc").val().trim();
 
 
     //empty input boxes on submit to clear form

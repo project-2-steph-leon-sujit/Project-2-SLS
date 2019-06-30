@@ -302,9 +302,9 @@ form {
 
 .settings-block {
     width: 50%;
-    overflow: hidden;
+    overflow-x: hidden;
     padding-right: 10px;
-    height: 90vh;
+    /* height: 90vh; */
 
 }
 
@@ -331,9 +331,9 @@ form {
 }
 .settings-edit-form {
     width: 50%;
-    height: 90vh;
+    /* height: 90vh; */
     /* padding-left: 10px; */
-    overflow: hidden;
+    overflow-x: hidden;
     padding-left: 10px;
 }
 
