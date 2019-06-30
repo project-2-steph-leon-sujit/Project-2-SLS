@@ -78,10 +78,25 @@ function showAll() {
 //END OF .each loop
     })
 
+  
   budgetAdder();
 
   });
 }
+
+//This function will delete items from sequel at the id name. 
+function deleteItem(){
+
+  $.ajax({
+
+    method: "DELETE",
+    url: "/api/new/" + id
+  })
+    .then(showAll) //<--callback to re-get all the budgets after delex is successful
+      
+}
+
+
 
 
 

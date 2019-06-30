@@ -41,7 +41,18 @@ module.exports = function (app) {
           console.log(results);
           console.log("this is coming from the database");
         });
-      });      
+      });
+      
+      
+      app.delete("/api/new/:id", function(req, res) {
+        db.Budget.destroy({
+          where: {
+            id: req.params.id
+          }
+        }).then(function(destroy) {
+          res.json(destroy);
+        });
+      });
     }
 
 
