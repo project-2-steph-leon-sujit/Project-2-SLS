@@ -82,7 +82,6 @@ function submitBudget(callback) {
     });
 };
 
-//TODO: Now write a Get to show all the information
 
 
 

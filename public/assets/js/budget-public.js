@@ -1,4 +1,10 @@
-//Initial Budget array
+
+$(document).ready(function(){
+
+
+
+
+  //Initial Budget array
 var budgetArray = []; //TODO TESTING not in use
 var $leonTestContainer = $("#leonTestContainer"); //TODO TESTING not in use
 var todos = [] //TODO TESTING not in use
@@ -17,13 +23,12 @@ var catVacation = [0, 0]
 //Getting all budgets from database when page loads
 showAll();
 
-
-
 function showAll() {
-  
+
   // console.log("showAll function is working");
 
   $.get("/api/new", function (data) {
+    console.log("this is data", data);
     // todos = data;
     // initializeRows();
     // var rowsToAdd = [];
@@ -45,13 +50,17 @@ function showAll() {
       <td>${item.description}</td>
       <td>${item.category}</td>
       <td>
-        <button type="button" class="update-button btn btn-sm m-0" id="update-button${i}">update</button>
-        <button type="button" class="delete-button btn btn-sm m-0" id="delete-button${i}">delete</button>
+        <button type="button" class="update-button btn btn-sm m-0" id="${i}update">update</button>
+        <button type="button" class="delete-button btn btn-sm m-0" id="${i}delete">delete</button>
       <td>
-      <tr>`
+      <tr>
+      `
+      console.log("Item name", item.name);
+      console.log("item ID:", item.id);
       $("#tableBody").append(budgetResults)
 
-//This will push the items in each category to its respective array------------------------------
+
+      //This will push the items in each category to its respective array------------------------------
       if (item.category == "income") {
         catIncome.push(item.expense)
       };
@@ -60,74 +69,99 @@ function showAll() {
       };
       if (item.category == "food") {
         catFood.push(item.expense)
-      }; 
+      };
       if (item.category == "entertainment") {
         catEntertainment.push(item.expense)
-      }; 
+      };
       if (item.category == "pets") {
         catPets.push(item.expense)
       };
-       if (item.category == "misc") {
+      if (item.category == "misc") {
         catMisc.push(item.expense)
       };
-       if (item.category == "vacation") {
+      if (item.category == "vacation") {
         catVacation.push(item.expense)
       };
-//Above will push the items in each category to its respective array------------------------------
+      //Above will push the items in each category to its respective array------------------------------
 
-//END OF .each loop
+      //END OF .each loop ---------------------------------------------------------
     })
 
-  
-  budgetAdder();
+
+    budgetAdder();
+
+    console.log()
+
+
+    //Delete button must be within this call or it won't know how to grab each ID for updates/deletes
+    // $(".delete-button").on("click", handlePostDelete)
+
+    $(".delete-button").click(function(){
+      console.log(this);
+      var delString = this.id;
+      // console.log(delString);
+      var newNumber = parseInt(delString)
+      console.log(newNumber);
+      var newerNumber = newNumber + 1
+      console.log("sequel ID: ", newerNumber);
+
+      $(this).parents('tr').first().remove()
+      // console.log($(this).parents().first())
+ 
+
+
+      deleteItem(newerNumber);
+
+ 
+      
+    });
 
   });
 }
 
 //This function will delete items from sequel at the id name. 
-function deleteItem(){
-
+function deleteItem(id) {
   $.ajax({
-
     method: "DELETE",
     url: "/api/new/" + id
   })
-    .then(showAll) //<--callback to re-get all the budgets after delex is successful
-      
+  
+  // .then(document.location.reload()) //<-reload the document so the math will work
+    // .then(showAll) //<--callback to re-get all the budgets after delex is successful
 }
 
 
 
 
 
-function budgetAdder(){
-    // function for adding two numbers. Easy!
-    const add = (a, b) =>
-      a + b
-    // use reduce to sum our array
+function budgetAdder() {
+  // function for adding two numbers. Easy!
+  const add = (a, b) =>
+    a + b
+  // use reduce to sum our array
 
-    var incomeSum = catIncome.reduce(add)
-    var rentSum = catRent.reduce(add)
-    var foodSum = catFood.reduce(add)
-    var entertainmentSum = catEntertainment.reduce(add)
-    var petsSum = catPets.reduce(add)
-    var miscSum = catMisc.reduce(add)
-    var vacationSum = catVacation.reduce(add)
+  var incomeSum = catIncome.reduce(add)
+  var rentSum = catRent.reduce(add)
+  var foodSum = catFood.reduce(add)
+  var entertainmentSum = catEntertainment.reduce(add)
+  var petsSum = catPets.reduce(add)
+  var miscSum = catMisc.reduce(add)
+  var vacationSum = catVacation.reduce(add)
 
-    //TODO: *****STEPH**** You can use these variables information to display the sum of each category
-    // console.log("Sum of income", incomeSum);
-    // console.log("Sum of rent", rentSum);
-    // console.log("Sum of food", foodSum);
-    // console.log("Sum of entertainment", entertainmentSum);
-    // console.log("Sum of pets", petsSum);
-    // console.log("Sum of misc", miscSum);
-    // console.log("Sum of vacation", vacationSum);
-    //TODO: *****STEPH****------------------------------------------------------------------
+  //TODO: *****STEPH**** You can use these variables information to display the sum of each category
+  console.log("Sum of income", incomeSum);
+  console.log("Sum of rent", rentSum);
+  console.log("Sum of food", foodSum);
+  console.log("Sum of entertainment", entertainmentSum);
+  console.log("Sum of pets", petsSum);
+  console.log("Sum of misc", miscSum);
+  console.log("Sum of vacation", vacationSum);
+  //TODO: *****STEPH****------------------------------------------------------------------
 }
 
 // const catIncome = [10, 20, 30, 40] // sums to 100
 
-
+});
 
 
 
