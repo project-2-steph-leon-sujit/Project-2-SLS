@@ -2,15 +2,15 @@ $(document).ready(function () {
   // budgetContainer holds all of our budgets
   var budgetContainer = $("#tableBody");
   var budgetCategorySelect = $("#category");
+
   // Click events for the edit and delete buttons
-  $(document).on("click", ".del-button", handleBudgetDelete); //need to write handlePostDelete
-  $(document).on("click", ".up-button", handleBudgetEdit); //need to write handlePostEdit and create edit.button with class
+  $(document).on("click", ".del-button", handleBudgetDelete); 
+  $(document).on("click", ".up-button", handleBudgetEdit); 
   budgetCategorySelect.on("change", handleCategoryChange); //need to write 'handleCategoryChange'
 
-  var budgets; //not used yet. This will hold the data globally outside of function scope. 
+  var budgets; //This holds the api.get data in global scope. 
 
-  // This function grabs budgets from the database and updates the view
-  //This is saying, pass in category type into getPosts. If there is a category, then run /api/budgets/:category. need a route for this. 
+  //This is saying, pass in category type into getBudgets. If there is a category, then run /api/budgets/:category. need a route for this. 
   function getBudgets(category) {
     // var categoryString = category || "";
     // if (categoryString) {
@@ -31,7 +31,6 @@ $(document).ready(function () {
     });
   }
 
-  // UNCOMMENT OUT FOR LATER-----------------------------
         // This function does an API call to delete budgets
   function deleteBudget(id) {
     $.ajax({
@@ -42,14 +41,15 @@ $(document).ready(function () {
         getBudgets(budgetCategorySelect.val());
       });
   }
-  // UNCOMMENT OUT FOR LATER-----------------------------
 
 
-
-  // Getting the initial list of budgets
+  // -----------------------------Getting the initial list of budgets----------------------------
   getBudgets();
+  // -----------------------------Getting the initial list of budgets----------------------------
+
+
   // InitializeRows handles appending all of our constructed budget HTML inside
-  // budgetContainer
+
   function initializeRows() {
     budgetContainer.empty();
     var budgetsToAdd = [];
@@ -62,9 +62,6 @@ $(document).ready(function () {
   }
 
   // This function constructs a budget's HTML
-
-
-
   function createNewRow(budget) {
     console.log("create new row is getting hit");
     //creating the Row
@@ -87,15 +84,14 @@ $(document).ready(function () {
     return newTr;
   }
 
+
   // This function figures out which budget we want to delete and then calls
   // deleteBudget
   function handleBudgetDelete() {
     var currentBudget = $(this)
       .parent()
       .data("budget");
-
     console.log("handleBudgetDelete function gettin clicked")
-
     deleteBudget(currentBudget.id);
   }
 
@@ -124,3 +120,5 @@ $(document).ready(function () {
   }
 
 });
+
+

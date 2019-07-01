@@ -30,18 +30,7 @@ function showAll() {
   $.get("/api/new", function (data) {
     console.log("this is data", data);
     // todos = data;
-    // initializeRows();
-    // var rowsToAdd = [];
-    // for (var i = 0; i < data.length; i++) {
-    //   rowsToAdd.push(createAuthorRow(data[i]));
-    // }
-    // renderAuthorList(rowsToAdd);
-    // nameInput.val("");
-    // console.log("This is 'todos'", todos)
-
-    // console.log("current data", data);
-
-    //A loop to dynamically create a table with update and delete buttons
+  
     $.each(data, function (i, item) {
       var budgetResults = `
     <tr>
@@ -97,21 +86,21 @@ function showAll() {
     // $(".delete-button").on("click", handlePostDelete)
 
     $(".delete-button").click(function(){
-      console.log(this);
-      var delString = this.id;
-      // console.log(delString);
-      var newNumber = parseInt(delString)
-      console.log(newNumber);
-      var newerNumber = newNumber + 1
-      console.log("sequel ID: ", newerNumber);
+      // console.log(this);
+      // var delString = this.id;
+      // // console.log(delString);
+      // var newNumber = parseInt(delString)
+      // console.log(newNumber);
+      // var newerNumber = newNumber + 1
+      // console.log("sequel ID: ", newerNumber);
 
-      $(this).parents('tr').first().remove()
+      // $(this).parents('tr').first().remove()
       // console.log($(this).parents().first())
  
 
 
-      deleteItem(newerNumber);
-
+      // deleteItem(newerNumber); <---reuse if new method fails
+      deleteItem();
  
       
     });
@@ -121,6 +110,11 @@ function showAll() {
 
 //This function will delete items from sequel at the id name. 
 function deleteItem(id) {
+
+  var listItemData = $(this).parent("td").parent("tr");
+
+  console.log("this is listItemData", listItemData);
+
   $.ajax({
     method: "DELETE",
     url: "/api/new/" + id

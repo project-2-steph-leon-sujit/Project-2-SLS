@@ -55,6 +55,31 @@ module.exports = function (app) {
       });
     }
 
+    
+  //   app.put("/api/new", function(req, res) {
+  //     db.Post.update(req.body,
+  //       {
+  //         where: {
+  //           id: req.body.id
+  //         }
+  //       })
+  //       .then(function(dbPost) {
+  //         res.json(dbPost);
+  //       });
+  //   });
+
+  //    // Get route for returning posts of a specific category
+  // app.get("/api/new/category/:category", function(req, res) {
+  //   db.Post.findAll({
+  //     where: {
+  //       category: req.params.category
+  //     }
+  //   })
+  //     .then(function(dbPost) {
+  //       res.json(dbPost);
+  //     });
+  // });
+
 
 
 
