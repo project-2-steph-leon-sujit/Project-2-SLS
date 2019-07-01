@@ -266,8 +266,8 @@ form {
 .right-block {
     display: flex;
     flex-direction: column;
-    height: 40vh;
-    width: 50vw;
+    min-height: 50%;
+    width: 100%;
     padding: 30px;
 
 }
