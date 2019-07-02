@@ -20,7 +20,12 @@ $("#sign-up-submit").on("click", function(){
 
 });
 
-// ======================= FORM SUBMIT ==========================
+$("#sugn-up-success").on("click", function(){
+    event.preventDefault();
+    window.location.reload();
+})
+
+// ======================= TRANSACTION FORM SUBMIT ==========================
 
 //add event listeners to form to create a new object
 $("#budget-submit").on("click", function(event){
@@ -45,6 +50,8 @@ $("#budget-submit").on("click", function(event){
 
     //submits new expense and reloads the page
    submitBudget(newExpense);
+
+   $("#new-transaction-form").append('<div><h4>Success!</h4><button id="sign-up-success" class="delete-button">log in</button></div>'); 
     
 });
 
