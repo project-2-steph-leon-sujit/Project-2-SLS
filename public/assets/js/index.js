@@ -28,6 +28,42 @@ $("#budget-submit").on("click", function(event){
     
 });
 
+// ======================= EDIT SETTINGS FORM SUBMIT ==========================
+
+//add event listeners to form to create a new object
+$("#edit-settings-button").on("click", function(event){
+    event.preventDefault();
+
+    //get new variables from form
+
+
+    var userName = $("#inputUserName").val().trim();
+    var profilePic = $("#inputProfilePic").val().trim();
+    var income = $("#inputIncome").val().trim();
+
+    var rent = $("#inputRent").val().trim();
+    var food = $("#inputFood").val().trim();
+    var entertainment = $("#inputEnt").val().trim();
+    var pets = $("#inputPets").val().trim();
+    var misc = $("#inputMisc").val().trim();
+
+
+    //empty input boxes on submit to clear form
+    $("#inputUserName").val("");
+    $("#inputProfilePic").val("");
+    $("#inputIncome").val("");
+
+    $("#inputRent").val("");
+    $("#inputFood").val("");
+    $("#inputEnt").val("");
+    $("#inputPets").val("");
+    $("#inputMisc").val("");
+
+    //repopulates categories with updated budgets
+//    editSettings();
+    
+});
+
 // ======================= POST ==========================
 
 //function to handle what happens when submit button is clicked to create new expense
@@ -38,7 +74,6 @@ function submitBudget(callback) {
     });
 };
 
-//TODO: Now write a Get to show all the information
 
 
 

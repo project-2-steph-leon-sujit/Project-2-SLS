@@ -50,8 +50,9 @@
     
 <!-- ====================================== BUDGET CONTENT ===================================== -->
    
-    <div class="container content-container">
-            <div class="col-lg-6 col-md-6 col-sm-12 budget-card">
+    <div class="content-container">
+           
+        <div class="col-lg-6 col-md-6 col-sm-12 budget-card right-block your-budget">
                  <h2>Your Budget</h2>
                  <div class="budget-overview">
                      <div class="budget-categories">
@@ -78,13 +79,27 @@
             
             </div>
             
-            <div class="col-lg-6 col-md-6 col-sm-12 tips-card">
+            <div class="col-lg-6 col-md-6 col-sm-12 tips-card right-block savings-tips">
               <h2>Savings Tips</h2>
             </div>
-          </div>
-          
-          <div class="container content-container">
-              <div class="col-lg-12 col-md-12 col-sm-12 budget-card">
+<form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <select id="leonInputCategory" class="form-control">
+                    <option selected>Select a Category</option>
+                    <option></option>
+                    <option>income</option>
+                      <option>rent</option>
+                      <option>food</option>
+                      <option>entertainment</option>
+                      <option>pets</option>
+                      <option>vacation</option>
+                      <option>misc</option>
+                  </select>
+                </div>
+              </div>
+   </form>      
+              <div class="col-lg-12 col-md-12 col-sm-12 budget-card spending-history">
                   <h2>Spending History</h2>
                   <div class="data-tables">
                       <table id="dataTable" class="table table-responsive-md btn-table" >
@@ -96,7 +111,7 @@
                                   <th scope="col">Category</th>
                               </tr>
                           </thead>
-                          <tbody>
+                          <tbody id = "tableBody">
                               <tr>
                                   <th scope="row">1</th>
                                   <td>Mark</td>
@@ -130,21 +145,43 @@
                           </tbody>
                       </table>
                   </div>
-          
-          
-              
-              
               </div>
+    </div>
+          
+          
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <div class="form-group">
+              <select class="custom-select" id="category">
+                <option selected value="">All Categories</option>
+                <option value="Personal">Personal</option>
+                <option value="Product Review">Product Review</option>
+                <option value="Political">Political</option>
+              </select>
             </div>
+          </div>
+          <div class="col-md-2">
+            <a class="btn btn-light" href="/cms">New Post</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 blog-container">
+          </div>
+        </div>
+      </div>
 
 
-            <div>
-         <container id = "leonTestContainer">
-
-            
-         </container>
-
-            </div>
           
 <!-- ====================================== FOOTER ===================================== -->
 
@@ -155,7 +192,9 @@
     </footer>
 
 <!-- ================================ JAVASCRIPT LINKS ================================== -->
-<script type="text/javascript" src="assets/js/budget-public.js"></script>
+<!-- <script type="text/javascript" src="assets/js/budget-public.js"></script> -->
+<script type="text/javascript" src="assets/js/newBudget.js"></script>
+<script type="text/javascript" src="assets/js/index.js"></script>
 
 </body>
 </html>

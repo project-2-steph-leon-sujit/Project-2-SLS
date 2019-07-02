@@ -41,8 +41,44 @@ module.exports = function (app) {
           console.log(results);
           console.log("this is coming from the database");
         });
-      });      
+      });
+      
+      
+      app.delete("/api/new/:id", function(req, res) {
+        db.Budget.destroy({
+          where: {
+            id: req.params.id
+          }
+        }).then(function(destroy) {
+          res.json(destroy);
+        });
+      });
     }
+
+    
+  //   app.put("/api/new", function(req, res) {
+  //     db.Post.update(req.body,
+  //       {
+  //         where: {
+  //           id: req.body.id
+  //         }
+  //       })
+  //       .then(function(dbPost) {
+  //         res.json(dbPost);
+  //       });
+  //   });
+
+  //    // Get route for returning posts of a specific category
+  // app.get("/api/new/category/:category", function(req, res) {
+  //   db.Post.findAll({
+  //     where: {
+  //       category: req.params.category
+  //     }
+  //   })
+  //     .then(function(dbPost) {
+  //       res.json(dbPost);
+  //     });
+  // });
 
 
 
