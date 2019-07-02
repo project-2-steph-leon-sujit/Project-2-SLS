@@ -1,5 +1,25 @@
 //Get references to table where data will be displayed
 
+// ======================= SIGN IN / SIGN UP SUBMIT ==========================
+$("#sign-up-form").hide();
+
+$("#sign-up").on("click", function(){
+    $("#sign-in-form").hide();
+    $("#sign-up-prompt").hide();
+    $("#sign-up-form").show();
+
+});
+
+$("#sign-up-submit").on("click", function(){
+    event.preventDefault();
+    $('#sign-up-form').append('<div><h4>Success!</h4><button id="sign-up-success" class="delete-button">log in</button></div>'); 
+    var newUser = {
+        userName: $("#newUser").val().trim()
+    };
+    submitUser(newUser);   
+
+});
+
 // ======================= FORM SUBMIT ==========================
 
 //add event listeners to form to create a new object
@@ -74,6 +94,13 @@ function submitBudget(callback) {
     });
 };
 
+//post new user name to user name database
+function submitUser(callback) {
+    $.post("/api/login/", callback, function() {
+    //   window.location.reload();
+        console.log("this is working?")
+    });
+};
 
 
 

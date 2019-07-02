@@ -63,7 +63,7 @@
         </div>
 
         <div class="sign-in-right">
-            <form class="sign-in-form" action ="/index" method="get">
+            <form class="sign-in-form" id="sign-in-form" action ="auth" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" class="form-control" id="userName" placeholder="username">
@@ -73,6 +73,18 @@
             
                 <div class="form-group">
                        <button class="btn btn-primary sign-in-button" id="sign-in-submit">submit</button>
+                </div>
+            </form>
+            <h4 id="sign-up-prompt">Don't have an account? <button id="sign-up" class="delete-button">Sign up!</button></h4>
+
+            <form class="sign-up-form" id="sign-up-form" action ="" method="">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="newUser" placeholder="choose a username">
+                    </div>
+                </div>
+                <div class="form-group">
+                       <button class="btn btn-primary sign-in-button" id="sign-up-submit">sign up</button>
                 </div>
             </form>
         </div>
