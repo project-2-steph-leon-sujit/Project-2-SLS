@@ -107,4 +107,3 @@ function submitUser(callback) {
 
 
 // ======================= GET DATA FOR TABLES ==========================
-//adding something for shits and giggles
