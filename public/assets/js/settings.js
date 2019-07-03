@@ -78,14 +78,21 @@ function showCats(budget) {
         console.log("getting data from category budget");
         console.log("New Budget: ", data);
 
+        var insertIncome = $("#settings-income");
+        var insertGoal = $("#settings-savings");
         var insertRent = $("#rent");
         var insertFood = $("#food");
         var insertEnt = $("#ent");
         var insertPets = $("#pets");
         var insertMisc = $("#misc");
 
-        insertRent.text("$"+budget[0].rent);
-        insertFood.text("$"+budget[0].food);
+        insertIncome.text("$"+data[0].income);
+        insertGoal.text("$"+data[0].goal);
+        insertRent.text("$"+data[0].rent);
+        insertFood.text("$"+data[0].food);
+        insertEnt.text("$"+data[0].entertainment);
+        insertPets.text("$"+data[0].pets);
+        insertMisc.text("$"+data[0].misc);
 
         // insertRent.text(budget[0])
         // var newPostCard = $("<div>");
