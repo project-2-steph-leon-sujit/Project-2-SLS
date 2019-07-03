@@ -17,12 +17,6 @@ module.exports = function (app) {
     })
        
 
-    // Add new budget entry
-    // app.post('/api/budget', function (req, res) {
-    //   db.Post.create(req.body).then(function(dbPost) {
-    //     res.json(dbPost)
-    //   })
-
       //POST new expense/income
       app.post("/api/new", function(req, res) {
 
@@ -53,40 +47,33 @@ module.exports = function (app) {
           res.json(destroy);
         });
       });
+
+//   //     //TODO: route to post form to category budget database
+//   // // Add new budget entry
+//   // app.post('/api/budget', function (req, res) {
+//   //   db.CategoryBudget.create(req.body).then(function(dbCategoryBudget) {
+//   //     res.json(dbCategoryBudget);
+//   //   });
+//   // });
+//   app.get('/api/budget', function (req, res) {
+//     console.log("this is working");
+
+//     db.CategoryBudget.findAll({}).then(function(result){
+//         res.json(result);
+//         console.log(result);
+//     });
+//     // res.end();
+// })
+
+  //end module.exports
     }
 
     
-  //   app.put("/api/new", function(req, res) {
-  //     db.Post.update(req.body,
-  //       {
-  //         where: {
-  //           id: req.body.id
-  //         }
-  //       })
-  //       .then(function(dbPost) {
-  //         res.json(dbPost);
-  //       });
-  //   });
-
-  //    // Get route for returning posts of a specific category
-  // app.get("/api/new/category/:category", function(req, res) {
-  //   db.Post.findAll({
-  //     where: {
-  //       category: req.params.category
-  //     }
-  //   })
-  //     .then(function(dbPost) {
-  //       res.json(dbPost);
-  //     });
-  // });
 
 
 
 
 
-    // // Add new user
-		// budget.push(userInput);
 
-    // // Send appropriate response
-    // res.json({ status: 'OK', matchName: matchName, matchImage: matchImage });
+
 

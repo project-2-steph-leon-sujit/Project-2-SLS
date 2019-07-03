@@ -1,3 +1,5 @@
+//follow online example to set up login 
+
 var mysql = require('mysql');
 var express = require('express');
 var session = require('express-session');
@@ -8,7 +10,7 @@ var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
 	password : '',
-	database : 'phplogin'
+	database : 'phplogin' //change
 });
 
 var app = express();

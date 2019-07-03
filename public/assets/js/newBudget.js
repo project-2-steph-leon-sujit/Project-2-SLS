@@ -121,4 +121,23 @@ $(document).ready(function () {
 
 });
 
+//This function grabs category budgets from CategoryBudget table
+// function getCategories() {
+//   authorId = author || "";
+//   if (authorId) {
+//     authorId = "/?author_id=" + authorId;
+//   }
+//   $.get("/api/posts" + authorId, function(data) {
+//     console.log("Posts", data);
+//     posts = data;
+//     if (!posts || !posts.length) {
+//       displayEmpty(author);
+//     }
+//     else {
+//       initializeRows();
+//     }
+//   });
+// }
+
+
 

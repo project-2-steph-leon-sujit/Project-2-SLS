@@ -70,6 +70,9 @@
                     <li>
                         <h4>Monthly Income: <p id="settings-income">$2000</p></h4>
                     </li>
+                    <li>
+                            <h4>Savings Goal: <p id="settings-savings">$900</p></h4>
+                        </li>
                 </ul>
             </div>
     
@@ -96,7 +99,7 @@
         </div>
     </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-12 settings-edit-form budget-card">
+    <div class="col-lg-6 col-md-6 col-sm-12 settings-edit-form budget-card" id="edit-settings">
             <div class="content-padding">
                 <h2>Edit Settings</h2>
     
@@ -106,38 +109,44 @@
                             <div class="form-group row">
                                 <label for="inputIncome" class="col-sm-2 col-form-label">Income</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputIncome" placeholder="your expected monthly income">
+                                    <input type="text" class="form-control" id="incomeBudget" placeholder="your expected monthly income">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                    <label for="inputSavings" class="col-sm-2 col-form-label">Savings Goal</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="savingsBudget" placeholder="your expected monthly income">
+                                    </div>
+                                </div>
                             <h3>Budget Settings</h3>
                             <div class="form-group row">
                                 <label for="inputRent" class="col-sm-2 col-form-label">Rent</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRent" placeholder="your monthly rent payment">
+                                    <input type="text" class="form-control" id="rentBudget" placeholder="your monthly rent payment">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputFood" class="col-sm-2 col-form-label">Food</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputFood" placeholder="your montly food budget">
+                                    <input type="text" class="form-control" id="foodBudget" placeholder="your montly food budget">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputEnt" class="col-sm-2 col-form-label">Entertainment</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputEnt" placeholder="your monthly entertainment budget">
+                                    <input type="text" class="form-control" id="entBudget" placeholder="your monthly entertainment budget">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPets" class="col-sm-2 col-form-label">Pets</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPets" placeholder="your monthly pet expense budget">
+                                    <input type="text" class="form-control" id="petsBudget" placeholder="your monthly pet expense budget">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputMisc" class="col-sm-2 col-form-label">Miscellaneous</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputMisc" placeholder="your monthly budget for everything else">
+                                    <input type="text" class="form-control" id="miscBudget" placeholder="your monthly budget for everything else">
                                 </div>
                             </div>
                                       
@@ -157,6 +166,9 @@
 <!-- ========================= JAVASCRIPT LINKS =========================== -->
 <script type="text/javascript" src="assets/js/budget-public.js"></script>
 <script type="text/javascript" src="assets/js/index.js"></script>
+<script type="text/javascript" src="assets/js/newBudget.js"></script>
+<script type="text/javascript" src="assets/js/settings.js"></script>
+
 
 </body>
 </html>
