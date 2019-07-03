@@ -6,7 +6,7 @@ module.exports = function(app) {
 
     app.get("/api/budget", function(req, res) {
         console.log("is this working yet?");
-        db.CategoryBudet.findAll({}).then(function(dbCategoryBudget){
+        db.CategoryBudget.findAll({}).then(function(dbCategoryBudget){
             res.json(dbCategoryBudget);
             console.log(dbCategoryBudget);
         });
@@ -19,14 +19,7 @@ module.exports = function(app) {
       res.json(dbCategoryBudget);
     });
   });
-//   app.get('/api/budget', function (req, res) {
-//     console.log("this is working");
 
-//     db.CategoryBudget.findAll({}).then(function(result){
-//         res.json(result);
-//         console.log(result);
-//     });
-//     // res.end();
 // });
 
 

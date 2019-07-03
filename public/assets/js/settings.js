@@ -25,9 +25,11 @@ $("#edit-settings-button").on("click", function(event){
        }
 
     console.log(newBudget);
-    createBudget(newBudget).then(function() {
-        showCats();
-    });
+    createBudget(newBudget);
+    showCats(newBudget);
+    // createBudget(newBudget).then(function() {
+    //     showCats();
+    // });
     // //ajax call to submit
     //     $.post("/api/budget", newBudget, function() {
     //     //   window.location.href = "/blog";
