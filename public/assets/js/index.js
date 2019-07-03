@@ -58,38 +58,45 @@ $("#budget-submit").on("click", function(event){
 // ======================= EDIT SETTINGS FORM SUBMIT ==========================
 
 //add event listeners to form to create a new object
-$("#edit-settings-button").on("click", function(event){
-    event.preventDefault();
+// $("#edit-settings-button").on("click", function(event){
+//     event.preventDefault();
 
-    //get new variables from form
+//     //get new variables from form
+
+//     var newSettings = {
+//      income: $("#inputIncome").val().trim(),
+//      rent: $("#inputRent").val().trim(),
+//      food: $("#inputFood").val().trim(),
+//      entertianment: $("#inputEnt").val().trim(),
+//      pets: $("#inputPets").val().trim(),
+//      misc: $("#inputMisc").val().trim()
+//     }
+
+//     console.log(newSettings);
+
+//     //empty input boxes on submit to clear form
+//     $("#inputUserName").val("");
+//     $("#inputProfilePic").val("");
+//     $("#inputIncome").val("");
+
+//     $("#inputRent").val("");
+//     $("#inputFood").val("");
+//     $("#inputEnt").val("");
+//     $("#inputPets").val("");
+//     $("#inputMisc").val("");
+
+//     $("#settings-income").text("$"+newSettings.income);
+//     $("#rent").text("$"+newSettings.rent);
+//     $("#food").text("$"+newSettings.food);
+//     $("#ent").text("$"+newSettings.entertianment);
+//     $("#pets").text("$"+newSettings.pets);
+//     $("#misc").text("$"+newSettings.misc);
 
 
-    var userName = $("#inputUserName").val().trim();
-    var profilePic = $("#inputProfilePic").val().trim();
-    var income = $("#inputIncome").val().trim();
-
-    var rent = $("#inputRent").val().trim();
-    var food = $("#inputFood").val().trim();
-    var entertainment = $("#inputEnt").val().trim();
-    var pets = $("#inputPets").val().trim();
-    var misc = $("#inputMisc").val().trim();
-
-
-    //empty input boxes on submit to clear form
-    $("#inputUserName").val("");
-    $("#inputProfilePic").val("");
-    $("#inputIncome").val("");
-
-    $("#inputRent").val("");
-    $("#inputFood").val("");
-    $("#inputEnt").val("");
-    $("#inputPets").val("");
-    $("#inputMisc").val("");
-
-    //repopulates categories with updated budgets
-//    editSettings();
+//     //repopulates categories with updated budgets
+// //    editSettings();
     
-});
+// });
 
 // ======================= POST ==========================
 
@@ -113,4 +120,47 @@ function submitUser(callback) {
 
 
 
-// ======================= GET DATA FOR TABLES ==========================
+// ======================= new budget table ==========================
+
+$("#edit-settings-button").on("click", function(event){
+    event.preventDefault();
+    console.log("i've been clicked!");
+
+    var newBudget = {
+        income: $("#incomeBudget").val(),
+        rent: $("#rentBudget").val(),
+        food: $("#foodBudget").val(),
+        entertainment: $("#entBudget").val(),
+        pets: $("#petsBudget").val(),
+        misc: $("#miscBudget").val()
+       }
+
+    console.log(newBudget);
+    //ajax call to submit
+        $.post("/api/budget", newBudget, function() {
+        //   window.location.href = "/blog";
+        }).then(function(){
+            getCats(newBudget);
+        });
+});
+
+function getCats(){
+    $.get("/api/budget", function(budgetData){
+
+    console.log(budgetData);
+    console.log(budgetData[0].rent);
+
+    // [""0""].income
+
+    // var rent = budgetData.rent;
+
+    $("#settings-income").text("$"+budgetData[0].income);
+    $("#rent").text("$"+budgetData[0].rent);
+    $("#food").text("$"+budgetData[0].food);
+    $("#ent").text("$"+budgetData[0].entertainment);
+    $("#pets").text("$"+budgetData[0].pets);
+    $("#misc").text("$"+budgetData[0].misc);
+
+    });
+
+}
