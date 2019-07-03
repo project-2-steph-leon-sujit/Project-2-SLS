@@ -26,7 +26,7 @@ $("#edit-settings-button").on("click", function(event){
 
     console.log(newBudget);
     createBudget(newBudget);
-    showCats(newBudget);
+    // showCats(newBudget);
     // createBudget(newBudget).then(function() {
     //     showCats();
     // });
@@ -56,6 +56,8 @@ $("#edit-settings-button").on("click", function(event){
 function createBudget(catBudget) {
     $.post("/api/budget", catBudget, function() {
         console.log("posting new budget");
+    }).then(function(){
+        showCats();
     })
 }
 
