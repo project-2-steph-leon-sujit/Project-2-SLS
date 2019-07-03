@@ -1,3 +1,8 @@
+//grab variables for math numbers to plug into chart
+var goal = 900;
+var saved =700;
+
+
 // window.onload event for Javascript to run after HTML
 // because this Javascript is injected into the document head
 window.addEventListener('load', () => {
@@ -10,7 +15,9 @@ window.addEventListener('load', () => {
        globals: {
          fontSize: 25,
          marginBottom: 0,
-         paddingBottom: 0
+         paddingBottom: 0,
+         fontFamily: "Quicksand, sans-serif",
+         color: "#040130"
        },
        plotarea:{
          marginTop:0,
@@ -27,7 +34,7 @@ window.addEventListener('load', () => {
            rules:[
              {
                rule: '%v <= 850',
-               text: '$%v<br>Out Of $850'
+               text: '$%v<br>Out Of $'+goal
              },
              {
                rule: '%v >= 850',
@@ -41,9 +48,9 @@ window.addEventListener('load', () => {
     },
        scaleR:{
         aperture:180,
-        minValue:300,
-        maxValue:850,
-        step:50,
+        minValue:0,
+        maxValue:goal,
+        step:90,
         center:{
           visible:false
         },
@@ -59,7 +66,7 @@ window.addEventListener('load', () => {
             }
           ]
         },
-        labels:['300','','','','','','580','640','700','750','','850'],
+        labels:['0','','','','','','','','','', goal],
         ring:{
           size:50,
           rules:[
@@ -80,7 +87,7 @@ window.addEventListener('load', () => {
     },
       series : [
           {
-              values : [755], // starting value
+              values : [saved], // starting value
               backgroundColor:'black',
           indicator:[10,10,10,10,0.75],
           animation:{  
