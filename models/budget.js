@@ -5,7 +5,6 @@ module.exports = function (sequelize, DataTypes) {
   var Budget = sequelize.define("Budget", {
 
     //TODO: Create the CRUD operations
-    
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,19 +32,13 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     }
+    //Cost of item. Negative for an expense, positive for income.
+
+    //TODO: find a way to add the date to each transaction. 
+    //   created_at: {
+    //     type: DataTypes.DATE,
+    // }
   });
-
-
-  // Budget.associate = function(models) {
-  //   // We're saying that a Post should belong to an Author
-  //   // A Post can't be created without an Author due to the foreign key constraint
-  //   Budget.belongsTo(models.Login, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-
   return Budget;
 };
 

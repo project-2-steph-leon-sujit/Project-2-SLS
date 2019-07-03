@@ -25,18 +25,16 @@ module.exports = function (app) {
 
       //POST new expense/income
       app.post("/api/new", function(req, res) {
-        // db.Post.create(req.body).then(function(dbPost) {
-        //   console.log("posts req.body", req.body)
-        //   res.json(dbPost);
-        // });
-  
+
+        console.log("Budget Data:");
+        console.log(req.body);
+    
         db.Budget.create({
           name: req.body.name,
-          expense: req.body.expense,
+          expense: req.body.amount,
           category: req.body.category,
           description: req.body.description,
           date: req.body.created_at
-          // LoginId: req.body.LoginId
         }).then(function(results) {
           // `results` here would be the newly created budget
           // res.end();
@@ -56,10 +54,6 @@ module.exports = function (app) {
         });
       });
     }
-
-
-    //TODO: ""Example to use in postman: {"name": "faf", "amount": "2222", "category": "rent", "description": "afafd", "created_at": "2019-06-30 15:55:15"}
-
 
     
   //   app.put("/api/new", function(req, res) {
