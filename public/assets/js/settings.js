@@ -1,5 +1,8 @@
 //control posting data from edit settings form to database
 
+$(document).ready(function() {
+showCats();
+
 //show edit settings
 $("#edit-button").on("click", function(event){
     $("#edit-settings").show();
@@ -22,12 +25,17 @@ $("#edit-settings-button").on("click", function(event){
        }
 
     console.log(newBudget);
-    //ajax call to submit
-        $.post("/api/budget", newBudget, function() {
-        //   window.location.href = "/blog";
-        }).then(function(){
-            getCats(newBudget);
-        });
+    createBudget(newBudget);
+    showCats(newBudget);
+    // createBudget(newBudget).then(function() {
+    //     showCats();
+    // });
+    // //ajax call to submit
+    //     $.post("/api/budget", newBudget, function() {
+    //     //   window.location.href = "/blog";
+    //     }).then(function(){
+    //         getCats(newBudget);
+    //     });
 
         //reset form values 
         $("#incomeBudget").val("");
@@ -45,7 +53,11 @@ $("#edit-settings-button").on("click", function(event){
 
 //TODO: ========= add a create function so that the jquery stuff in the getCats() function isn't inside a button click =========
 
-
+function createBudget(catBudget) {
+    $.post("/api/budget", catBudget, function() {
+        console.log("posting new budget");
+    })
+}
 
 //this function needs to be the update
 function getCats(){
@@ -65,4 +77,15 @@ function getCats(){
 
     });
 
-}
+};
+
+//display content from database in html
+function showCats(budget) {
+    $.get("/api/budget", budget, function(data) {
+        console.log("getting data from category budget");
+        console.log("New Budget: " + data);
+    })
+};
+
+//close document ready
+});

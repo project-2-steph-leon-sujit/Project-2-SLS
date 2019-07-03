@@ -37,6 +37,7 @@ var db = require("./models");
 // require("./routes/budget-api-routes.js")(app); TODO: this has been deprecated. 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/category-api-routes.js")(app);
 
 db.sequelize.sync({
     force: true
