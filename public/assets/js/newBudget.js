@@ -3,9 +3,18 @@ $(document).ready(function () {
   var budgetContainer = $("#tableBody");
   var budgetCategorySelect = $("#category");
 
+
+  var incomeSum = [0,0]
+  var rentSum = [0,0]
+  var foodSum = [0,0]
+  var entertainmentSum = [0,0]
+  var petsSum = [0,0]
+  var miscSum = [0,0]
+  var vacationSum = [0,0]
+
   // Click events for the edit and delete buttons
-  $(document).on("click", ".del-button", handleBudgetDelete); 
-  $(document).on("click", ".up-button", handleBudgetEdit); 
+  $(document).on("click", ".del-button", handleBudgetDelete);
+  $(document).on("click", ".up-button", handleBudgetEdit);
   budgetCategorySelect.on("change", handleCategoryChange); //need to write 'handleCategoryChange'
 
   var budgets; //This holds the api.get data in global scope. 
@@ -25,13 +34,66 @@ $(document).ready(function () {
         // displayEmpty();
       }
       else {   //<- if there is a budget. run the initializeRows function. 
-        console.log("this is the else hitting")
+        console.log("this is the else hitting. If rows are added it would happen here. ")
         initializeRows();
       }
-    });
+
+      //Use a .then so that it runs this adding function
+    }).then(function () {
+
+      //income, rent, food, entertainment, pets, vacation, misc
+      for (i = 0; i < budgets.length; i++) {
+        
+        console.log("this should only run after the get is done");
+        // console.log(budgets);
+
+        if (budgets[i].category == "income") {
+            incomeSum.push(budgets[i].expense);
+        }
+
+        if (budgets[i].category == "rent"){
+          rentSum.push(budgets[i].expense);
+        }
+        
+        if (budgets[i].category == "food"){
+          foodSum.push(budgets[i].expense);
+        }
+        if (budgets[i].category == "entertainment"){
+          entertainmentSum.push(budgets[i].expense);
+        }
+        if (budgets[i].category == "pets"){
+          petsSum.push(budgets[i].expense);
+        }
+        if (budgets[i].category == "vacation"){
+          vacationSum.push(budgets[i].expense);
+        }
+        if (budgets[i].category == "misc"){
+          miscSum.push(budgets[i].expense);
+        }
+        else {
+          console.log("nothing is being hit");
+        }
+      }
+
+
+      console.log("this is incomeSum", incomeSum);
+      console.log("this is rentSum", rentSum);
+      console.log("this is foodSum", foodSum);
+      console.log("this is entertainmentSum", entertainmentSum);
+      console.log("this is petSum", petsSum);
+      console.log("this is vacationSum", vacationSum);
+      console.log("this is miscSum", miscSum);
+
+
+
+    }).then(function(){
+
+      budgetAdder()
+      
+    })
   }
 
-        // This function does an API call to delete budgets
+  // This function does an API call to delete budgets
   function deleteBudget(id) {
     $.ajax({
       method: "DELETE",
@@ -55,24 +117,41 @@ $(document).ready(function () {
     var budgetsToAdd = [];
     for (var i = 0; i < budgets.length; i++) {
       budgetsToAdd.push(createNewRow(budgets[i]));
+
+      console.log("this is budgets Leon", budgets);
+
+
+
     }
     budgetContainer.append(budgetsToAdd);
-    console.log("budgets adding. Function initializeRows is working");
-    console.log("current budgetsToAdd. It's working!", budgetsToAdd);
+
+
+    // budgetAdder();
+    // console.log("budgets adding. Function initializeRows is working");
+    // console.log("current budgetsToAdd. It's working!", budgetsToAdd);
   }
 
   // This function constructs a budget's HTML
   function createNewRow(budget) {
     console.log("create new row is getting hit");
     //creating the Row
-//TODO: WORKING
+    //TODO: WORKING
+
+    budget.createdAt = moment(budget.createdAt).subtract(10, 'days').calendar() // <--converts to dd/mm/yyyy
+
+
     var newTr = $("<tr>");
     newTr.data("budget", budget);
     newTr.append("<td>" + budget.name + "</td>");
     newTr.append("<td>" + budget.expense + "</td>");
     newTr.append("<td>" + budget.description + "</td>");
     newTr.append("<td>" + budget.category + "</td>");
-//TODO: ^---WORKING----
+    newTr.append("<td>" + budget.createdAt + "</td>");
+
+
+    
+    ;
+    //TODO: ^---WORKING----
     var deleteBtn = $("<button>");
     deleteBtn.text("Delete")
     deleteBtn.addClass("del-button btn btn-sm m-0");
@@ -81,6 +160,7 @@ $(document).ready(function () {
     editBtn.addClass("up-button btn btn-sm m-0");
     newTr.append(deleteBtn);
     newTr.append(editBtn);
+
     return newTr;
   }
 
@@ -93,6 +173,7 @@ $(document).ready(function () {
       .data("budget");
     console.log("handleBudgetDelete function gettin clicked")
     deleteBudget(currentBudget.id);
+    location.reload();
   }
 
   // This function figures out which budget we want to edit and takes it to the
@@ -119,25 +200,38 @@ $(document).ready(function () {
     getBudgets(newBudgetCategory);
   }
 
+
+
+  function budgetAdder() {
+    // function for adding two numbers. Easy!
+    const add = (a, b) =>
+      a + b
+    // use reduce to sum our array
+
+    incomeSum = incomeSum.reduce(add)
+    rentSum = rentSum.reduce(add)
+    foodSum = foodSum.reduce(add)
+    entertainmentSum = entertainmentSum.reduce(add)
+    petsSum = petsSum.reduce(add)
+    miscSum = miscSum.reduce(add)
+    vacationSum = vacationSum.reduce(add)
+
+    //TODO: *****STEPH**** You can use these variables information to display the sum of each category
+    console.log("Sum of income", incomeSum);
+    console.log("Sum of rent", rentSum);
+    console.log("Sum of food", foodSum);
+    console.log("Sum of entertainment", entertainmentSum);
+    console.log("Sum of pets", petsSum);
+    console.log("Sum of misc", miscSum);
+    console.log("Sum of vacation", vacationSum);
+    //TODO: *****STEPH****------------------------------------------------------------------
+  }
+
+
+
+  $("#incomeIDz").text(incomeSum);
+  // console.log("income sum is", incomeSum);
+
 });
-
-//This function grabs category budgets from CategoryBudget table
-// function getCategories() {
-//   authorId = author || "";
-//   if (authorId) {
-//     authorId = "/?author_id=" + authorId;
-//   }
-//   $.get("/api/posts" + authorId, function(data) {
-//     console.log("Posts", data);
-//     posts = data;
-//     if (!posts || !posts.length) {
-//       displayEmpty(author);
-//     }
-//     else {
-//       initializeRows();
-//     }
-//   });
-// }
-
 
 
