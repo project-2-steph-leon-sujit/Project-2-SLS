@@ -26,16 +26,7 @@ $("#edit-settings-button").on("click", function(event){
 
     console.log(newBudget);
     createBudget(newBudget);
-    // showCats(newBudget);
-    // createBudget(newBudget).then(function() {
-    //     showCats();
-    // });
-    // //ajax call to submit
-    //     $.post("/api/budget", newBudget, function() {
-    //     //   window.location.href = "/blog";
-    //     }).then(function(){
-    //         getCats(newBudget);
-    //     });
+
 
         //reset form values 
         $("#incomeBudget").val("");
@@ -85,7 +76,40 @@ function getCats(){
 function showCats(budget) {
     $.get("/api/budget", budget, function(data) {
         console.log("getting data from category budget");
-        console.log("New Budget: " + data);
+        console.log("New Budget: ", data);
+
+        var insertIncome = $("#settings-income");
+        var insertGoal = $("#settings-savings");
+        var insertRent = $("#rent");
+        var insertFood = $("#food");
+        var insertEnt = $("#ent");
+        var insertPets = $("#pets");
+        var insertMisc = $("#misc");
+
+        insertIncome.text("$"+data[0].income);
+        insertGoal.text("$"+data[0].goal);
+        insertRent.text("$"+data[0].rent);
+        insertFood.text("$"+data[0].food);
+        insertEnt.text("$"+data[0].entertainment);
+        insertPets.text("$"+data[0].pets);
+        insertMisc.text("$"+data[0].misc);
+
+        // insertRent.text(budget[0])
+        // var newPostCard = $("<div>");
+        // newPostCard.addClass("card");
+        // var newPostCardHeading = $("<div>");
+        // newPostCardHeading.addClass("card-header");
+        // var deleteBtn = $("<button>");
+        // deleteBtn.text("x");
+        // deleteBtn.addClass("delete btn btn-danger");
+        // var editBtn = $("<button>");
+        // editBtn.text("EDIT");
+        // editBtn.addClass("edit btn btn-default");
+        // var newPostTitle = $("<h2>");
+        // var newPostDate = $("<small>");
+        // var newPostCategory = $("<h5>");
+
+        
     })
 };
 
