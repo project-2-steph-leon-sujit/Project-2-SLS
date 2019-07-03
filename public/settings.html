@@ -65,49 +65,43 @@
                 <h3>User Settings</h3>
                 <ul class="user-info" id="user-info">
                     <li>
-                        <h4>User Name: </h4>
-                        <p>User Name</p>
+                        <h4>User Name: <p id="user-name">User Name</p></h4>
                     </li>
                     <li>
-                        <h4>Profile Picture: </h4>
-                        <p>photo.myprofilepic.com/photo</p>
+                        <h4>Monthly Income: <p id="settings-income">$2000</p></h4>
                     </li>
                     <li>
-                        <h4>Monthly Income: </h4>
-                        <p>$2000</p>
-                    </li>
+                            <h4>Savings Goal: <p id="settings-savings">$900</p></h4>
+                        </li>
                 </ul>
             </div>
     
             <div class="user-settings">
                     <h3>Budget Settings</h3>
-                    <ul class="budget-info" id="budget-info">
-                        <li>
-                            <h4>Rent: </h4>
-                            <p id="rent">$950</p>
-                        </li>
-                        <li>
-                            <h4>Food: </h4>
-                            <p id="food">$200</p>
-                        </li>
-                        <li>
-                            <h4>Entertainment: </h4>
-                            <p id="ent">$150</p>
-                        </li>
-                        <li>
-                            <h4>Pets: </h4>
-                            <p id="pets">$300</p>
-                        </li>
-                        <li>
-                            <h4>Misc: </h4>
-                            <p id="misc">$150</p>
-                        </li>
-                    </ul>
+                    <div id="budgetSettings">
+                        <ul class="budget-info" id="budget-info">
+                            <li>
+                                <h4>Rent:  <p id="rent">$950</p></h4>
+                            </li>
+                            <li>
+                                <h4>Food: <p id="food">$200</p></h4>
+                            </li>
+                            <li>
+                                <h4>Entertainment:  <p id="ent">$150</p></h4>                         
+                            </li>
+                            <li>
+                                <h4>Pets: <p id="pets">$300</p></h4>
+                            </li>
+                            <li>
+                                <h4>Misc: <p id="misc">$150</p></h4>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
         </div>
     </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-12 settings-edit-form budget-card">
+    <div class="col-lg-6 col-md-6 col-sm-12 settings-edit-form budget-card" id="edit-settings">
             <div class="content-padding">
                 <h2>Edit Settings</h2>
     
@@ -115,52 +109,46 @@
                           <h3>User Settings</h3>
                           
                             <div class="form-group row">
-                              <label for="inputUserName" class="col-sm-2 col-form-label">User Name</label>
-                              <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputUserName" placeholder="change your user name">
-                              </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputProfilePic" class="col-sm-2 col-form-label">Profile Image</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputProfilePic" placeholder="link to profile image">
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="inputIncome" class="col-sm-2 col-form-label">Income</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputIncome" placeholder="your expected monthly income">
+                                    <input type="text" class="form-control" id="incomeBudget" placeholder="your expected monthly income">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                    <label for="inputSavings" class="col-sm-2 col-form-label">Savings Goal</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="savingsBudget" placeholder="your expected monthly income">
+                                    </div>
+                                </div>
                             <h3>Budget Settings</h3>
                             <div class="form-group row">
                                 <label for="inputRent" class="col-sm-2 col-form-label">Rent</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputRent" placeholder="your monthly rent payment">
+                                    <input type="text" class="form-control" id="rentBudget" placeholder="your monthly rent payment">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputFood" class="col-sm-2 col-form-label">Food</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputFood" placeholder="your montly food budget">
+                                    <input type="text" class="form-control" id="foodBudget" placeholder="your montly food budget">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputEnt" class="col-sm-2 col-form-label">Entertainment</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputEnt" placeholder="your monthly entertainment budget">
+                                    <input type="text" class="form-control" id="entBudget" placeholder="your monthly entertainment budget">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPets" class="col-sm-2 col-form-label">Pets</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPets" placeholder="your monthly pet expense budget">
+                                    <input type="text" class="form-control" id="petsBudget" placeholder="your monthly pet expense budget">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputMisc" class="col-sm-2 col-form-label">Miscellaneous</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputMisc" placeholder="your monthly budget for everything else">
+                                    <input type="text" class="form-control" id="miscBudget" placeholder="your monthly budget for everything else">
                                 </div>
                             </div>
                                       
@@ -180,6 +168,9 @@
 <!-- ========================= JAVASCRIPT LINKS =========================== -->
 <script type="text/javascript" src="assets/js/budget-public.js"></script>
 <script type="text/javascript" src="assets/js/index.js"></script>
+<script type="text/javascript" src="assets/js/newBudget.js"></script>
+<script type="text/javascript" src="assets/js/settings.js"></script>
+
 
 </body>
 </html>

@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 9000;
 // var config = require('./config/config.json');
 var router = express.Router();
 var path = require("path");
+var moment = require('moment');
 
 
 // Sets up the Express app to handle data parsing
@@ -36,6 +37,7 @@ var db = require("./models");
 // require("./routes/budget-api-routes.js")(app); TODO: this has been deprecated. 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/category-api-routes.js")(app);
 
 db.sequelize.sync({
     force: true

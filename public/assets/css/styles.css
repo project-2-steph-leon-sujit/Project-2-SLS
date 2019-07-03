@@ -75,6 +75,7 @@ footer {
       #00A8C5, #FFFF7E
     );
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -85,7 +86,7 @@ footer {
 
 }
 
-.sign-in-form input {
+.sign-in-form input, .sign-up-form input {
     min-width: 350px;
     min-height: 50px;
     color: #040130!important;
@@ -93,6 +94,8 @@ footer {
     box-shadow: 4px 4px 8px 0px rgba(68,68,68,0.2);
 
 }
+
+
 
 .sign-in-button {
     background-color:#040130;
@@ -289,6 +292,10 @@ form {
 
 
 /* ============================= ACCOUNT SETTINGS =============================== */
+#edit-settings {
+    display: none;
+}
+
 .user-info, .budget-info {
     text-decoration: none;
     list-style-type: none;
@@ -359,3 +366,4 @@ label {
 .settings-form form {
     padding-top: 0px!important;
 }
+
