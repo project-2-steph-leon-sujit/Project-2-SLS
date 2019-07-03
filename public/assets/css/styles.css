@@ -292,6 +292,10 @@ form {
 
 
 /* ============================= ACCOUNT SETTINGS =============================== */
+#edit-settings {
+    display: none;
+}
+
 .user-info, .budget-info {
     text-decoration: none;
     list-style-type: none;

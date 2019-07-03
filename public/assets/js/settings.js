@@ -1,5 +1,9 @@
 //control posting data from edit settings form to database
 
+//show edit settings
+$("#edit-button").on("click", function(event){
+    $("#edit-settings").show();
+});
 
 // ======================= new budget table ==========================
 
@@ -24,6 +28,19 @@ $("#edit-settings-button").on("click", function(event){
         }).then(function(){
             getCats(newBudget);
         });
+
+        //reset form values 
+        $("#incomeBudget").val("");
+        $("#savingsBudget").val("");
+        $("#rentBudget").val("");
+        $("#foodBudget").val("");
+        $("#entBudget").val("");
+        $("#petsBudget").val("");
+        $("#miscBudget").val("");
+
+
+
+    setTimeout(function() {$("#edit-settings").hide()}, 400);
 });
 
 //TODO: ========= add a create function so that the jquery stuff in the getCats() function isn't inside a button click =========
