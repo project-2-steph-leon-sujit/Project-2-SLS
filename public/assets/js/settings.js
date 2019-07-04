@@ -37,9 +37,6 @@ $("#create-budget-submit").on("click", function(event){
         $("#petsBudget").val("");
         $("#miscBudget").val("");
 
-
-
-    // setTimeout(function() {$("#edit-settings").hide()}, 400);
 });
 
 //TODO: ========= add a create function so that the jquery stuff in the getCats() function isn't inside a button click =========
@@ -52,25 +49,6 @@ function createBudget(catBudget) {
     })
 }
 
-//this function needs to be the update
-function getCats(){
-    $.get("/api/budget", function(budgetData){
-
-    console.log(budgetData);
-    console.log(budgetData[0].rent);
-
-
-    $("#settings-income").text("$"+budgetData[0].income);
-    $("#settings-savings").text("$"+budgetData[0].goal);
-    $("#rent").text("$"+budgetData[0].rent);
-    $("#food").text("$"+budgetData[0].food);
-    $("#ent").text("$"+budgetData[0].entertainment);
-    $("#pets").text("$"+budgetData[0].pets);
-    $("#misc").text("$"+budgetData[0].misc);
-
-    });
-
-};
 
 //display content from database in html
 function showCats(budget) {
@@ -86,32 +64,27 @@ function showCats(budget) {
         var insertPets = $("#pets");
         var insertMisc = $("#misc");
 
-        insertIncome.text("$"+data[0].income);
+ insertIncome.text("$"+data[0].income);
         insertGoal.text("$"+data[0].goal);
         insertRent.text("$"+data[0].rent);
         insertFood.text("$"+data[0].food);
         insertEnt.text("$"+data[0].entertainment);
         insertPets.text("$"+data[0].pets);
         insertMisc.text("$"+data[0].misc);
-
-        // insertRent.text(budget[0])
-        // var newPostCard = $("<div>");
-        // newPostCard.addClass("card");
-        // var newPostCardHeading = $("<div>");
-        // newPostCardHeading.addClass("card-header");
-        // var deleteBtn = $("<button>");
-        // deleteBtn.text("x");
-        // deleteBtn.addClass("delete btn btn-danger");
-        // var editBtn = $("<button>");
-        // editBtn.text("EDIT");
-        // editBtn.addClass("edit btn btn-default");
-        // var newPostTitle = $("<h2>");
-        // var newPostDate = $("<small>");
-        // var newPostCategory = $("<h5>");
-
-        
+    
     })
 };
+
+function updatePost(catBudget) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/budget",
+      data: catBudget
+    })
+      .then(function() {
+        window.location.href = "/blog";
+      });
+  }
 
 //close document ready
 });

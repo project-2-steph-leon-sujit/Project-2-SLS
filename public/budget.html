@@ -58,9 +58,14 @@
                 <div class="row settings-header">
                      <h2>Your Budget</h2>
                      <!-- <button type="button" class="edit-button btn btn-sm m-0" id="edit-button">create new</button> -->
-                     <button type="button" class="btn btn-primary edit-button" id="create-button" data-toggle="modal" data-target="#exampleModalCenter">
-                        create new
-                      </button>
+                    <div class="budget-buttons">
+                         <button type="button" class="btn btn-primary edit-button" id="create-button" data-toggle="modal" data-target="#exampleModalCenter">
+                            create new
+                          </button>
+                          <button type="button" class="btn btn-primary edit-button" id="edit-button" data-toggle="modal" data-target="#exampleModalCenter">
+                                edit
+                              </button>
+                    </div>
                 </div>
                   
                   <!-- Modal -->
@@ -129,6 +134,73 @@
                       </div>
                     </div>
                   </div>
+
+                   <!-- Update Budget Modal -->
+                   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="exampleModalCenterTitle">Edit Budget</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+        
+                                <form class="settings-form">
+                                    <div class="form-group row">
+                                        <label for="inputIncome" class="col-sm-2 col-form-label">Income</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="incomeBudget" placeholder="your expected monthly income">
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputSavings" class="col-sm-2 col-form-label">Savings Goal</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="savingsBudget" placeholder="your savings goal">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputRent" class="col-sm-2 col-form-label">Rent</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="rentBudget" placeholder="your monthly rent payment">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputFood" class="col-sm-2 col-form-label">Food</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="foodBudget" placeholder="your montly food budget">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEnt" class="col-sm-2 col-form-label">Entertainment</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="entBudget" placeholder="your monthly entertainment budget">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPets" class="col-sm-2 col-form-label">Pets</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="petsBudget" placeholder="your monthly pet expense budget">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputMisc" class="col-sm-2 col-form-label">Misc</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="miscBudget" placeholder="your monthly budget for everything else">
+                                        </div>
+                                    </div>
+                                                
+                                    <!-- <button type="submit" class="btn btn-primary edit-button" id="create-budget-submit">submit</button> -->
+                                    </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary delete-button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary edit-button" id="edit-budget-submit">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                  <div class="budget-overview">
                      <div class="budget-categories" id="yourBudget">
