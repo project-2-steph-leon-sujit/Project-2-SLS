@@ -1,4 +1,6 @@
+
 $(document).ready(function () {
+  
   // budgetContainer holds all of our budgets
   var budgetContainer = $("#tableBody");
   var budgetCategorySelect = $("#category");
@@ -225,6 +227,9 @@ $(document).ready(function () {
     console.log("Sum of misc", miscSum);
     console.log("Sum of vacation", vacationSum);
     //TODO: *****STEPH****------------------------------------------------------------------
+
+    //ZINGCHART STUFF
+ 
   }
 
 
@@ -233,5 +238,7 @@ $(document).ready(function () {
   // console.log("income sum is", incomeSum);
 
 });
+
+
 
 

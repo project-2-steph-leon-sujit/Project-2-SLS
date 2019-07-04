@@ -10,7 +10,7 @@ $("#edit-button").on("click", function(event){
 
 // ======================= new budget table ==========================
 
-$("#edit-settings-button").on("click", function(event){
+$("#create-budget-submit").on("click", function(event){
     event.preventDefault();
     console.log("i've been clicked!");
 
@@ -39,7 +39,7 @@ $("#edit-settings-button").on("click", function(event){
 
 
 
-    setTimeout(function() {$("#edit-settings").hide()}, 400);
+    // setTimeout(function() {$("#edit-settings").hide()}, 400);
 });
 
 //TODO: ========= add a create function so that the jquery stuff in the getCats() function isn't inside a button click =========

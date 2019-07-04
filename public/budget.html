@@ -17,6 +17,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
          <!-- Moment.js -->
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+           <!-- ZingChart.js -->
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700&display=swap" rel="stylesheet">        
         <!-- CSS -->
@@ -52,22 +54,96 @@
    
     <div class="content-container">
            
-        <div class="col-lg-6 col-md-6 col-sm-12 budget-card right-block your-budget">
-                 <h2>Your Budget</h2>
+        <div class="col-lg-6 col-md-6 col-sm-12 tips-card right-block your-budget">
+                <div class="row settings-header">
+                     <h2>Your Budget</h2>
+                     <!-- <button type="button" class="edit-button btn btn-sm m-0" id="edit-button">create new</button> -->
+                     <button type="button" class="btn btn-primary edit-button" id="create-button" data-toggle="modal" data-target="#exampleModalCenter">
+                        create new
+                      </button>
+                </div>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="exampleModalCenterTitle">Create New Budget</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+    
+                            <form class="settings-form">
+                                <div class="form-group row">
+                                    <label for="inputIncome" class="col-sm-2 col-form-label">Income</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="incomeBudget" placeholder="your expected monthly income">
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputSavings" class="col-sm-2 col-form-label">Savings Goal</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="savingsBudget" placeholder="your savings goal">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputRent" class="col-sm-2 col-form-label">Rent</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="rentBudget" placeholder="your monthly rent payment">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputFood" class="col-sm-2 col-form-label">Food</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="foodBudget" placeholder="your montly food budget">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEnt" class="col-sm-2 col-form-label">Entertainment</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="entBudget" placeholder="your monthly entertainment budget">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPets" class="col-sm-2 col-form-label">Pets</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="petsBudget" placeholder="your monthly pet expense budget">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputMisc" class="col-sm-2 col-form-label">Misc</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="miscBudget" placeholder="your monthly budget for everything else">
+                                    </div>
+                                </div>
+                                            
+                                <!-- <button type="submit" class="btn btn-primary edit-button" id="create-budget-submit">submit</button> -->
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary delete-button" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary edit-button" id="create-budget-submit">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                  <div class="budget-overview">
-                     <div class="budget-categories">
-                         <ul>
-                             <li><p>Category 1</p></li>
-                             <li><p>Category 2</p></li>
-                             <li><p>Category 3</p></li>
-                             <li><p>Category 4</p></li>
-                             <li><p>Category 5</p></li>
-                         </ul>
+                     <div class="budget-categories" id="yourBudget">
+                        <div id="budgetSettings">
+                            <!-- <h4>Monthly Income: <p id="settings-income">$2000</p></h4> -->
+                            <h4>Savings Goal: <p id="settings-savings">$900</p></h4>
+                            <h4>Rent:  <p id="rent">$950</p></h4>
+                            <h4>Food: <p id="food">$200</p></h4>   
+                            <h4>Misc: <p id="misc">$150</p></h4>
+                        </div>
                      </div>
                      <div class="budget-stats">
                         <div class="income">
                              <h4>Income:</h4>
-                             <p id="income"></p>
+                             <p id="settings-income"></p>
                         </div>
                         <div class="expenses">
                           <h4>Expenses:</h4>
@@ -79,8 +155,9 @@
             
             </div>
             
-            <div class="col-lg-6 col-md-6 col-sm-12 tips-card right-block savings-tips">
+            <div class="col-lg-6 col-md-6 col-sm-12 budget-card right-block savings-tips">
               <h2>Savings Tips</h2>
+              <div id='myChart'></div>
             </div>
 <form>
             <div class="form-row">
@@ -195,6 +272,8 @@
 <!-- <script type="text/javascript" src="assets/js/budget-public.js"></script> -->
 <script type="text/javascript" src="assets/js/newBudget.js"></script>
 <script type="text/javascript" src="assets/js/index.js"></script>
+<script type="text/javascript" src="assets/js/settings.js"></script>
+<script type="text/javascript" src="assets/js/budget-zingchart.js"></script>
 
 
 </body>
