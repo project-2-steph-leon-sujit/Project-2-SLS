@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     
     // full ZingChart schema can be found here:
     // https://www.zingchart.com/docs/api/json-configuration/
-   var myConfig = {
+   var myConfig2 = {
        type: "gauge",
        globals: {
          fontSize: 25,
@@ -103,8 +103,8 @@ window.addEventListener('load', () => {
     // render chart with width and height to
     // fill the parent container CSS dimensions
     zingchart.render({ 
-      id: 'myChart', 
-      data: myConfig, 
+      id: 'myChart2', 
+      data: myConfig2, 
       height: '100%', 
       width: '100%' 
     });
