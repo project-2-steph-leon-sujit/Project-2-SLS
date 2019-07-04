@@ -230,15 +230,6 @@ $(document).ready(function () {
     $("#foodInc").append(foodSum);
     $("#entertainmentInc").append(entertainmentSum);
     $("#totalBudget").append(netBudget);
-
-    
-    
-
-
-
-    //TODO: *****STEPH****------------------------------------------------------------------
-
-    //ZINGCHART STUFF
  
   }
 
