@@ -6,6 +6,11 @@ $(document).ready(function () {
   var budgetCategorySelect = $("#category");
 
 
+
+  // var incomeSum = ""
+  // var rentSum = ""
+
+
   var incomeSum = [0,0]
   var rentSum = [0,0]
   var foodSum = [0,0]
@@ -138,21 +143,12 @@ $(document).ready(function () {
     console.log("create new row is getting hit");
     //creating the Row
     //TODO: WORKING
-
-    budget.createdAt = moment(budget.createdAt).subtract(10, 'days').calendar() // <--converts to dd/mm/yyyy
-
-
     var newTr = $("<tr>");
     newTr.data("budget", budget);
     newTr.append("<td>" + budget.name + "</td>");
     newTr.append("<td>" + budget.expense + "</td>");
     newTr.append("<td>" + budget.description + "</td>");
     newTr.append("<td>" + budget.category + "</td>");
-    newTr.append("<td>" + budget.createdAt + "</td>");
-
-
-    
-    ;
     //TODO: ^---WORKING----
     var deleteBtn = $("<button>");
     deleteBtn.text("Delete")
@@ -218,6 +214,8 @@ $(document).ready(function () {
     miscSum = miscSum.reduce(add)
     vacationSum = vacationSum.reduce(add)
 
+    //This takes total income minus expenses
+    netBudget = incomeSum - (rentSum+foodSum+entertainmentSum+petsSum+miscSum)
     //TODO: *****STEPH**** You can use these variables information to display the sum of each category
     console.log("Sum of income", incomeSum);
     console.log("Sum of rent", rentSum);
@@ -226,11 +224,26 @@ $(document).ready(function () {
     console.log("Sum of pets", petsSum);
     console.log("Sum of misc", miscSum);
     console.log("Sum of vacation", vacationSum);
+
+
+    $("#sumInc").append(incomeSum);
+    $("#foodInc").append(foodSum);
+    $("#entertainmentInc").append(entertainmentSum);
+    $("#totalBudget").append(netBudget);
+
+    
+    
+
+
+
     //TODO: *****STEPH****------------------------------------------------------------------
 
     //ZINGCHART STUFF
  
   }
+
+
+
 
 
 
