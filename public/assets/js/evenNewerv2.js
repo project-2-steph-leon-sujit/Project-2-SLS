@@ -235,7 +235,7 @@ $(document).ready(function () {
         netBudget = incomeSum - (rentSum + foodSum + entertainmentSum + petsSum + miscSum);
         netExpenses = (rentSum+foodSum+entertainmentSum+petsSum+miscSum);
 
-        $("#incSum").text("$").append(incomeSum);
+        $("#incSum").append(incomeSum);
         $("#rentSum").append(rentSum)
         $("#foodSum").append(foodSum);
         $("#entertainmentSum").append(entertainmentSum);
