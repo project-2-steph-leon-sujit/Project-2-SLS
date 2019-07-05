@@ -149,7 +149,7 @@ $(document).ready(function () {
 
         newTr.data("budget", budget);
         newTr.append("<td>" + budget.name + "</td>");
-        newTr.append("<td>" + budget.expense + "</td>");
+        newTr.append("<td>" +"$"+ budget.expense + "</td>");
         newTr.append("<td>" + budget.description + "</td>");
         newTr.append("<td>" + budget.category + "</td>");
         newTr.append("<td>" + momentDate + "</td>");
@@ -235,7 +235,7 @@ $(document).ready(function () {
         netBudget = incomeSum - (rentSum + foodSum + entertainmentSum + petsSum + miscSum);
         netExpenses = (rentSum+foodSum+entertainmentSum+petsSum+miscSum);
 
-        $("#incSum").append(incomeSum);
+        $("#incSum").text("$").append(incomeSum);
         $("#rentSum").append(rentSum)
         $("#foodSum").append(foodSum);
         $("#entertainmentSum").append(entertainmentSum);
@@ -415,6 +415,7 @@ function budgetScreenChart() {
 function homeScreenChart() {
 // var saved = 700;
 
+// console.log("this is nextexpenses", netExpenses)
     var myConfig2 = {
         type: "gauge",
         globals: {
