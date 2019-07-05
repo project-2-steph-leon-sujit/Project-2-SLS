@@ -26,9 +26,14 @@ $("#budget-submit").on("click", function(event){
     //submits new expense and reloads the page
    submitBudget(newExpense);
 
-   $("#new-transaction-form").append('<div><h4>Success!</h4><button id="sign-up-success" class="delete-button">log in</button></div>'); 
-    
+   $("#new-transaction-form").replaceWith('<div><h2 class="success-alert">Success!</h2><button id="sign-up-success" class="add-new-button">add another transaction</button></div>'); 
+   $("#sign-up-success").on("click", function(event){
+       event.preventDefault();
+    window.location.reload();
 });
+
+});
+
 
 // ======================= POST ==========================
 
@@ -38,4 +43,5 @@ function submitBudget(callback) {
     //   window.location.reload();
         console.log("this is working?")
     });
+    // window.location.reload();
 };

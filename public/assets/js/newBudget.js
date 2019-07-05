@@ -1,16 +1,18 @@
+
 $(document).ready(function () {
+  
   // budgetContainer holds all of our budgets
   var budgetContainer = $("#tableBody");
   var budgetCategorySelect = $("#category");
 
 
-  var incomeSum = [0,0]
-  var rentSum = [0,0]
-  var foodSum = [0,0]
-  var entertainmentSum = [0,0]
-  var petsSum = [0,0]
-  var miscSum = [0,0]
-  var vacationSum = [0,0]
+  var incomeSum = []
+  var rentSum = []
+  var foodSum = []
+  var entertainmentSum = []
+  var petsSum = []
+  var miscSum = []
+  var vacationSum = []
 
   // Click events for the edit and delete buttons
   $(document).on("click", ".del-button", handleBudgetDelete);
@@ -30,11 +32,11 @@ $(document).ready(function () {
       console.log("Leons Budgets", data);
       budgets = data;
       if (!budgets || !budgets.length) { //<- If there are no budgets, display nothing. 
-        console.log("this is the if hitting");
+        // console.log("this is the if hitting");
         // displayEmpty();
       }
       else {   //<- if there is a budget. run the initializeRows function. 
-        console.log("this is the else hitting. If rows are added it would happen here. ")
+        // console.log("this is the else hitting. If rows are added it would happen here. ")
         initializeRows();
       }
 
@@ -84,14 +86,25 @@ $(document).ready(function () {
       console.log("this is vacationSum", vacationSum);
       console.log("this is miscSum", miscSum);
 
-
-
-    }).then(function(){
+    })
+    .then(function(){  
 
       budgetAdder()
-      
+
+
+      console.log("this is chart income", chartIncome)
     })
+
+
+
   }
+
+
+  //TODO: set up an on click for the budgetAdder and see what's goin on
+
+// $("#budgetAdder").on("click", budgetAdder)
+
+
 
   // This function does an API call to delete budgets
   function deleteBudget(id) {
@@ -136,21 +149,12 @@ $(document).ready(function () {
     console.log("create new row is getting hit");
     //creating the Row
     //TODO: WORKING
-
-    budget.createdAt = moment(budget.createdAt).subtract(10, 'days').calendar() // <--converts to dd/mm/yyyy
-
-
     var newTr = $("<tr>");
     newTr.data("budget", budget);
     newTr.append("<td>" + budget.name + "</td>");
     newTr.append("<td>" + budget.expense + "</td>");
     newTr.append("<td>" + budget.description + "</td>");
     newTr.append("<td>" + budget.category + "</td>");
-    newTr.append("<td>" + budget.createdAt + "</td>");
-
-
-    
-    ;
     //TODO: ^---WORKING----
     var deleteBtn = $("<button>");
     deleteBtn.text("Delete")
@@ -208,14 +212,19 @@ $(document).ready(function () {
       a + b
     // use reduce to sum our array
 
-    incomeSum = incomeSum.reduce(add)
-    rentSum = rentSum.reduce(add)
-    foodSum = foodSum.reduce(add)
-    entertainmentSum = entertainmentSum.reduce(add)
-    petsSum = petsSum.reduce(add)
-    miscSum = miscSum.reduce(add)
-    vacationSum = vacationSum.reduce(add)
+    incomeSum = incomeSum.reduce(add,0)
+    rentSum = rentSum.reduce(add,0)
+    foodSum = foodSum.reduce(add,0)
+    entertainmentSum = entertainmentSum.reduce(add,0)
+    petsSum = petsSum.reduce(add,0)
+    miscSum = miscSum.reduce(add,0)
+    vacationSum = vacationSum.reduce(add,0)
 
+
+    chartIncome = incomeSum
+
+    //This takes total income minus expenses
+    netBudget = incomeSum - (rentSum+foodSum+entertainmentSum+petsSum+miscSum)
     //TODO: *****STEPH**** You can use these variables information to display the sum of each category
     console.log("Sum of income", incomeSum);
     console.log("Sum of rent", rentSum);
@@ -224,8 +233,17 @@ $(document).ready(function () {
     console.log("Sum of pets", petsSum);
     console.log("Sum of misc", miscSum);
     console.log("Sum of vacation", vacationSum);
-    //TODO: *****STEPH****------------------------------------------------------------------
+
+    $("#incSum").append(incomeSum);
+    $("#foodSum").append(foodSum);
+    $("#entertainmentSum").append(entertainmentSum);
+    $("#netSum").append(netBudget);
+
+
   }
+
+
+
 
 
 
@@ -235,3 +253,109 @@ $(document).ready(function () {
 });
 
 
+
+
+//TODO:
+
+//TODO: 1. Run the .get to show all the rows. 
+//TODO: 2. .Then Show the screen for Your Budget. 
+//TOdo: 3. .Then grab the graph. 
+
+
+
+
+
+
+
+
+
+//control posting data from edit settings form to database
+
+$(document).ready(function() {
+  showCats();
+  
+  //show edit settings
+  $("#edit-button").on("click", function(event){
+      $("#edit-settings").show();
+  });
+  
+  // ======================= new budget table ==========================
+  
+  $("#create-budget-submit").on("click", function(event){
+      event.preventDefault();
+      console.log("i've been clicked!");
+  
+      var newBudget = {
+          income: $("#incomeBudget").val(),
+          goal: $("#savingsBudget").val(),
+          rent: $("#rentBudget").val(),
+          food: $("#foodBudget").val(),
+          entertainment: $("#entBudget").val(),
+          pets: $("#petsBudget").val(),
+          misc: $("#miscBudget").val()
+         }
+  
+      console.log(newBudget);
+      createBudget(newBudget);
+  
+  
+          //reset form values 
+          $("#incomeBudget").val("");
+          $("#savingsBudget").val("");
+          $("#rentBudget").val("");
+          $("#foodBudget").val("");
+          $("#entBudget").val("");
+          $("#petsBudget").val("");
+          $("#miscBudget").val("");
+  
+  });
+  
+  //TODO: ========= add a create function so that the jquery stuff in the getCats() function isn't inside a button click =========
+  
+  function createBudget(catBudget) {
+      $.post("/api/budget", catBudget, function() {
+          console.log("posting new budget");
+      }).then(function(){
+          showCats();
+      })
+  }
+  
+  
+  //display content from database in html
+  function showCats(budget) {
+      $.get("/api/budget", budget, function(data) {
+          console.log("getting data from category budget");
+          console.log("New Budget: ", data);
+  
+          var insertIncome = $("#settings-income");
+          var insertGoal = $("#settings-savings");
+          var insertRent = $("#rent");
+          var insertFood = $("#food");
+          var insertEnt = $("#ent");
+          var insertPets = $("#pets");
+          var insertMisc = $("#misc");
+  
+   insertIncome.text("$"+data[0].income);
+          insertGoal.text("$"+data[0].goal);
+          insertRent.text("$"+data[0].rent);
+          insertFood.text("$"+data[0].food);
+          insertEnt.text("$"+data[0].entertainment);
+          insertPets.text("$"+data[0].pets);
+          insertMisc.text("$"+data[0].misc);
+      
+      })
+  };
+  
+  function updatePost(catBudget) {
+      $.ajax({
+        method: "PUT",
+        url: "/api/budget",
+        data: catBudget
+      })
+        .then(function() {
+          window.location.href = "/blog";
+        });
+    }
+  
+  //close document ready
+  });
