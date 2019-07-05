@@ -141,15 +141,19 @@ $(document).ready(function () {
         //creating the Row
         //TODO: WORKING
         var newTr = $("<tr>");
+
+        var momentDate = moment(budget.createdAt).format("MMM Do YY");
+
         newTr.data("budget", budget);
         newTr.append("<td>" + budget.name + "</td>");
         newTr.append("<td>" + budget.expense + "</td>");
         newTr.append("<td>" + budget.description + "</td>");
         newTr.append("<td>" + budget.category + "</td>");
+        newTr.append("<td>" + momentDate + "</td>");
         //TODO: ^---WORKING----
         var deleteBtn = $("<button>");
         deleteBtn.text("Delete")
-        deleteBtn.addClass("del-button btn btn-sm m-0");
+        deleteBtn.addClass("del-button btn btn-sm m-0 delete-button");
         var editBtn = $("<button>");
         editBtn.text("Update");
         editBtn.addClass("up-button btn btn-sm m-0");
