@@ -129,8 +129,12 @@ $(document).ready(function () {
             budgetsToAdd.push(createNewRow(budgets[i]));
             // console.log("this is budgets Leon", budgets);
         }
+
         var reverseBudgetsArray = budgetsToAdd.reverse();
         budgetContainer.append(reverseBudgetsArray);
+
+        console.log("first second third", budgetsToAdd);
+        console.log("third 2nd first", reverseBudgetsArray)
 
     }
 
@@ -156,6 +160,12 @@ $(document).ready(function () {
         var editBtn = $("<button>");
         editBtn.text("Update");
         editBtn.addClass("up-button btn btn-sm m-0");
+        if(budget.category == "income"){
+            newTr.addClass("incomeClass");
+        }
+        else[
+            console.log("this is not an income item")
+        ]
         newTr.append(deleteBtn);
         // newTr.append(editBtn);
 
