@@ -45,6 +45,13 @@ footer {
 
 }
 
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    height: 100%;
+}
+
 
 /* ============================= HEADER =============================== */
 .savvie-nav-bar {
@@ -191,7 +198,7 @@ footer {
 
 .bottom-content {
     margin-top: 20px;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
 }
 .budget-card {
     background-color: #fff;
@@ -213,6 +220,24 @@ footer {
 
 /* ============================= BUDGET PAGE =============================== */
 
+
+.your-budget {
+    padding: 30px;
+}
+
+.total-budget-income {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+}
+
+.budget-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 .spending-history {
     margin-top: 20px;
     padding: 30px;
@@ -293,6 +318,9 @@ form {
     width: 100%;
 }
 
+#new-transaction-form {
+    padding-top: 30px;
+}
 .success-alert {
     padding:30px;
     text-align: center;
@@ -354,8 +382,12 @@ form {
 	width:100%;
     min-height:300px;
     overflow: hidden;
-    margin-bottom: -140px;
-    padding-bottom: 30px;
+    margin-bottom: -100px;
+
+}
+
+.hide-extra-chart {
+    overflow: hidden;
 }
 
 .zc-ref { 
@@ -401,14 +433,10 @@ form {
 }
 
 .edit-button {
-    background-image:
-    linear-gradient(
-      to top right, 
-      #00A8C5, #FFFF7E
-    );
+    background-color:#040130;
     color:#ffffff;
     border-radius: 5px;
-    padding: 10px 30px 10px 30px;
+    padding: 5px 10px 5px 10px;
     border:none;
     margin: 3px;
 }

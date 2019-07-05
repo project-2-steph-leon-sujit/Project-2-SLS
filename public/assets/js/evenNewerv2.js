@@ -333,14 +333,16 @@ function showCats(budget) {
         var insertEnt = $("#ent");
         var insertPets = $("#pets");
         var insertMisc = $("#misc");
+        var insertExpenses = $("#expenses");
 
-        insertIncome.text("$" + data[0].income);
-        insertGoal.text("$" + data[0].goal);
-        insertRent.text("$" + data[0].rent);
-        insertFood.text("$" + data[0].food);
-        insertEnt.text("$" + data[0].entertainment);
-        insertPets.text("$" + data[0].pets);
-        insertMisc.text("$" + data[0].misc);
+        insertIncome.append(" $" + data[0].income);
+        insertGoal.append("$" + data[0].goal);
+        insertRent.append("$" + data[0].rent);
+        insertFood.append("$" + data[0].food);
+        insertEnt.append("$" + data[0].entertainment);
+        insertPets.append("$" + data[0].pets);
+        insertMisc.append("$" + data[0].misc);
+        // insertExpenses.append("$" + netExpenses);
 
         goalGoal = data[0].goal
         goalIncome = data[0].income
@@ -427,7 +429,7 @@ function homeScreenChart() {
         },
         plotarea: {
             marginTop: 0,
-            marginBottom: 0
+            marginBottom:0
         },
         plot: {
             marginBottom: 0,
@@ -439,11 +441,11 @@ function homeScreenChart() {
                 fontSize: 35,
                 rules: [
                     {
-                        rule: '%v <= 850',
-                        text: '$%v<br>Out Of $1000'
+                        rule: '%v <= goalGoal',
+                        text: '$%v<br>Out Of '+goalGoal
                     },
                     {
-                        rule: '%v >= 850',
+                        rule: '%v >= goalGoal',
                         text: '$%v<br>You Did It!'
                     }
                 ]
