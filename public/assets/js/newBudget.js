@@ -130,11 +130,7 @@ $(document).ready(function () {
     var budgetsToAdd = [];
     for (var i = 0; i < budgets.length; i++) {
       budgetsToAdd.push(createNewRow(budgets[i]));
-
       console.log("this is budgets Leon", budgets);
-
-
-
     }
     budgetContainer.append(budgetsToAdd);
 
