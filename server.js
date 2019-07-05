@@ -38,6 +38,7 @@ var db = require("./models");
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 require("./routes/category-api-routes.js")(app);
+require("./routes/login-routes.js")(app);
 
 db.sequelize.sync({
     force: false  //! <-------use true if you want it to drop tables. change this to false later. 
