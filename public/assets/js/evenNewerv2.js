@@ -109,8 +109,6 @@ $(document).ready(function () {
             })
     }
 
-
-
     // This function does an API call to delete budgets
     function deleteBudget(id) {
         $.ajax({
@@ -131,7 +129,8 @@ $(document).ready(function () {
             budgetsToAdd.push(createNewRow(budgets[i]));
             // console.log("this is budgets Leon", budgets);
         }
-        budgetContainer.append(budgetsToAdd);
+        var reverseBudgetsArray = budgetsToAdd.reverse();
+        budgetContainer.append(reverseBudgetsArray);
 
     }
 
