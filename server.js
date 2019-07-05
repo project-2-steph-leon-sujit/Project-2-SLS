@@ -38,15 +38,16 @@ var db = require("./models");
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 require("./routes/category-api-routes.js")(app);
+require("./routes/login-routes.js")(app);
 
 db.sequelize.sync({
-    force: true
+    force: false  //! <-------use true if you want it to drop tables. change this to false later. 
 }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
 });
-
+// y
 // app.listen(port);
 
 // //@TODO Delete below after you verify the the app is working

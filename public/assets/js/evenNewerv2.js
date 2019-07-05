@@ -23,7 +23,6 @@ $(document).ready(function () {
     budgetCategorySelect.on("change", handleCategoryChange); //need to write 'handleCategoryChange'
 
 
-
     // -----------------------------Getting the initial list of budgets and categories----------------------------
     getBudgets();
     showCats();
@@ -96,17 +95,19 @@ $(document).ready(function () {
                 console.log("this is goal rent ", goalRent)
 
 
-                //TODO: -----------The two charts will run here----------
+                //TODO: -----------The two charts will run here. Any chart we use can be put in here----------
+                            //TODO:Variables for spent is:  chartIncome//chartRent//chartFood//chartEntertainment//chartPets//chartMisc
+                            //TODO:Variables for budget is: goalIncome//goalRent//goalFood//goalEnt//goalPets//goalMisc // goalGoal
+                          
+                
                 budgetScreenChart();
                 homeScreenChart();
 
-                //TODO: -----------The two charts will run here----------
+                //TODO: -----------The two charts will run here----------------------------------------------
 
             //!----------------TEST BOX-----------------------------------------
             })
     }
-
-
 
     // This function does an API call to delete budgets
     function deleteBudget(id) {
@@ -126,18 +127,15 @@ $(document).ready(function () {
         var budgetsToAdd = [];
         for (var i = 0; i < budgets.length; i++) {
             budgetsToAdd.push(createNewRow(budgets[i]));
-
-            console.log("this is budgets Leon", budgets);
-
-
-
+            // console.log("this is budgets Leon", budgets);
         }
-        budgetContainer.append(budgetsToAdd);
 
+        var reverseBudgetsArray = budgetsToAdd.reverse();
+        budgetContainer.append(reverseBudgetsArray);
 
-        // budgetAdder();
-        // console.log("budgets adding. Function initializeRows is working");
-        // console.log("current budgetsToAdd. It's working!", budgetsToAdd);
+        console.log("first second third", budgetsToAdd);
+        console.log("third 2nd first", reverseBudgetsArray)
+
     }
 
     // This function constructs a budget's HTML
@@ -146,20 +144,30 @@ $(document).ready(function () {
         //creating the Row
         //TODO: WORKING
         var newTr = $("<tr>");
+
+        var momentDate = moment(budget.createdAt).format("MMM Do YY");
+
         newTr.data("budget", budget);
         newTr.append("<td>" + budget.name + "</td>");
-        newTr.append("<td>" + budget.expense + "</td>");
+        newTr.append("<td>" +"$"+ budget.expense + "</td>");
         newTr.append("<td>" + budget.description + "</td>");
         newTr.append("<td>" + budget.category + "</td>");
+        newTr.append("<td>" + momentDate + "</td>");
         //TODO: ^---WORKING----
         var deleteBtn = $("<button>");
         deleteBtn.text("Delete")
-        deleteBtn.addClass("del-button btn btn-sm m-0");
+        deleteBtn.addClass("del-button btn btn-sm m-0 delete-button");
         var editBtn = $("<button>");
         editBtn.text("Update");
         editBtn.addClass("up-button btn btn-sm m-0");
+        if(budget.category == "income"){
+            newTr.addClass("incomeClass");
+        }
+        else[
+            console.log("this is not an income item")
+        ]
         newTr.append(deleteBtn);
-        newTr.append(editBtn);
+        // newTr.append(editBtn);
 
         return newTr;
     }
@@ -222,12 +230,12 @@ $(document).ready(function () {
         chartPets = petsSum
         chartMisc = miscSum
         chartVacation = vacationSum
-   
 
         //This takes total income minus expenses. 'netBudget' is used for home page Zyng Chart
-        netBudget = incomeSum - (rentSum + foodSum + entertainmentSum + petsSum + miscSum)
-  
-        $("#incSum").append(incomeSum);
+        netBudget = incomeSum - (rentSum + foodSum + entertainmentSum + petsSum + miscSum);
+        netExpenses = (rentSum+foodSum+entertainmentSum+petsSum+miscSum);
+
+        $("#incSum").text("$").append(incomeSum);
         $("#rentSum").append(rentSum)
         $("#foodSum").append(foodSum);
         $("#entertainmentSum").append(entertainmentSum);
@@ -268,8 +276,6 @@ $("#create-budget-submit").on("click", function (event) {
     $("#entBudget").val("");
     $("#petsBudget").val("");
     $("#miscBudget").val("");
-
-
 
 });
 
@@ -327,16 +333,19 @@ function showCats(budget) {
         var insertEnt = $("#ent");
         var insertPets = $("#pets");
         var insertMisc = $("#misc");
+        var insertExpenses = $("#expenses");
 
-        insertIncome.text("$" + data[0].income);
-        insertGoal.text("$" + data[0].goal);
-        insertRent.text("$" + data[0].rent);
-        insertFood.text("$" + data[0].food);
-        insertEnt.text("$" + data[0].entertainment);
-        insertPets.text("$" + data[0].pets);
-        insertMisc.text("$" + data[0].misc);
+        insertIncome.append(" $" + data[0].income);
+        insertGoal.append("$" + data[0].goal);
+        insertRent.append("$" + data[0].rent);
+        insertFood.append("$" + data[0].food);
+        insertEnt.append("$" + data[0].entertainment);
+        insertPets.append("$" + data[0].pets);
+        insertMisc.append("$" + data[0].misc);
+        // insertExpenses.append("$" + netExpenses);
 
         goalGoal = data[0].goal
+        goalIncome = data[0].income
         goalRent = data[0].rent
         goalFood = data[0].food
         goalEnt = data[0].entertainment
@@ -406,10 +415,9 @@ function budgetScreenChart() {
 
 
 function homeScreenChart() {
+// var saved = 700;
 
-
-    var saved = 700;
-
+// console.log("this is nextexpenses", netExpenses)
     var myConfig2 = {
         type: "gauge",
         globals: {
@@ -421,7 +429,7 @@ function homeScreenChart() {
         },
         plotarea: {
             marginTop: 0,
-            marginBottom: 0
+            marginBottom:0
         },
         plot: {
             marginBottom: 0,
@@ -433,11 +441,11 @@ function homeScreenChart() {
                 fontSize: 35,
                 rules: [
                     {
-                        rule: '%v <= 850',
-                        text: '$%v<br>Out Of $1000'
+                        rule: '%v <= goalGoal',
+                        text: '$%v<br>Out Of '+goalGoal
                     },
                     {
-                        rule: '%v >= 850',
+                        rule: '%v >= goalGoal',
                         text: '$%v<br>You Did It!'
                     }
                 ]
@@ -509,3 +517,4 @@ function homeScreenChart() {
         width: '100%'
     });
 }
+

@@ -42,9 +42,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/budget">budget</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/settings"><img src="assets/images/settings_icon.png" alt="settings" class="settings-icon"></a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -54,22 +51,55 @@
    
     <div class="content-container">
            
-        <div class="col-lg-6 col-md-6 col-sm-12 tips-card right-block your-budget">
-                <div class="row settings-header">
-                     <h2>Your Budget</h2>
-                     <!-- <button type="button" class="edit-button btn btn-sm m-0" id="edit-button">create new</button> -->
-                    <div class="budget-buttons">
-                         <button type="button" class="btn btn-primary edit-button" id="create-button" data-toggle="modal" data-target="#exampleModalCenter">
-                            create new
-                          </button>
-                          <button type="button" class="btn btn-primary edit-button" id="edit-button" data-toggle="modal" data-target="#exampleModalCenter">
-                                edit
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 tips-card right-block your-budget">
+                    <div class="row settings-header">
+                         <h2>Your Budget</h2>
+                         <!-- <button type="button" class="edit-button btn btn-sm m-0" id="edit-button">create new</button> -->
+                        <div class="budget-buttons">
+                             <button type="button" class="btn btn-primary edit-button" id="create-button" data-toggle="modal" data-target="#exampleModalCenter">
+                                create new
                               </button>
+                              <button type="button" class="btn btn-primary edit-button" id="edit-button" data-toggle="modal" data-target="#exampleModalCenter">
+                                    edit
+                                  </button>
+                        </div>
                     </div>
+    
+                     <div class="budget-overview">
+                         <div class="budget-totals" id="yourBudget">
+                            <div id="budgetSettings">
+                                <!-- <h4>Monthly Income: <p id="settings-income">$2000</p></h4> -->
+                                <h4 id="settings-savings">Savings Goal: </h4>
+                                <h4 id="rent">Rent: </h4>
+                                <h4 id="food">Food: </h4>
+                                <h4 id="pets">Pets: </h4>   
+                                <h4 id="misc">Misc: </h4>
+                            </div>
+                         </div>
+                         <!-- <div class="budget-stats">
+                            <div class="income">
+                                <h4>Income:</h4>
+                                <p id="settings-income"></p>
+                            </div>
+                         </div> -->
+                         <div class="total-budget-income">
+                            <div class="income totals">
+                                <h3 id="settings-income">Income:</h3>
+                                <!-- <p id="settings-income"></p> -->
+                            </div>
+                        </div>
+                     </div> 
                 </div>
-                  
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    
+                <div class="col-lg-6 col-md-6 col-sm-12 budget-card right-block savings-tips">
+                    <h2>Spending Summary</h2>
+                    <div id='myChart'></div>
+                </div>
+        </div>
+
+             <!-- Modal -->
+             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -203,52 +233,8 @@
                         </div>
                       </div>
 
-                 <div class="budget-overview">
-                     <div class="budget-categories" id="yourBudget">
-                        <div id="budgetSettings">
-                            <!-- <h4>Monthly Income: <p id="settings-income">$2000</p></h4> -->
-                            <h4>Savings Goal: <p id="settings-savings">$900</p></h4>
-                            <h4>Rent:  <p id="rent">$950</p></h4>
-                            <h4>Food: <p id="food">$200</p></h4>   
-                            <h4>Misc: <p id="misc">$150</p></h4>
-                        </div>
-                     </div>
-                     <div class="budget-stats">
-                        <div class="income">
-                             <h4>Income:</h4>
-                             <p id="settings-income"></p>
-                        </div>
-                        <div class="expenses">
-                          <h4>Expenses:</h4>
-                          <p id="expenses"></p>
-                        </div>
-                     </div>
-                 </div>
             
-            
-            </div>
-            
-            <div class="col-lg-6 col-md-6 col-sm-12 budget-card right-block savings-tips">
-              <h2>Spending Summary</h2>
-              <div id='myChart'></div>
-            </div>
-<form>
-            <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                  <select id="leonInputCategory" class="form-control">
-                    <option selected>Select a Category</option>
-                    <option></option>
-                    <option>income</option>
-                      <option>rent</option>
-                      <option>food</option>
-                      <option>entertainment</option>
-                      <option>pets</option>
-                      <option>vacation</option>
-                      <option>misc</option>
-                  </select>
-                </div>
-              </div> -->
-   </form>      
+     
               <div class="col-lg-12 col-md-12 col-sm-12 budget-card spending-history">
                   <h2>Spending History</h2>
                   <div class="data-tables">
@@ -259,39 +245,13 @@
                                   <th scope="col">Amount</th>
                                   <th scope="col">Description</th>
                                   <th scope="col">Category</th>
+                                  <th scope="col">Date</th>
+                                  <th scope="col"></th>
+
                               </tr>
                           </thead>
                           <tbody id = "tableBody">
-                              <!-- <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                  <td>
-                                      <button type="button" class="update-button btn btn-sm m-0" id="update-button">update</button>
-                                      <button type="button" class="delete-button btn btn-sm m-0" id="delete-button">delete</button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                  <td>
-                                      <button type="button" class="update-button btn btn-sm m-0" id="update-button">update</button>
-                                      <button type="button" class="delete-button btn btn-sm m-0" id="delete-button">delete</button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                  <td>
-                                      <button type="button" class="update-button btn btn-sm m-0" id="update-button">update</button>
-                                      <button type="button" class="delete-button btn btn-sm m-0" id="delete-button">delete</button>
-                                  </td> -->
-                              </tr>
+  
                           </tbody>
                       </table>
                   </div>
@@ -330,26 +290,6 @@
           </div>
         </div>
       </div> -->
-
-
-<div class = "mathTestDiv">
-    <h2>How much you have spent so far</h2>
-    <p id = "incSum">Total Income: </p>
-
-    <p id = "rentSum">Rent: </p>
-    <p id = "foodSum">Food: </p>
-    <p id = "entertainmentSum">Entertainment: </p>
-    <p id = "petsSum">Pets: </p>
-    <p id = "miscSum">Misc: </p>
-    <p id = "netSum">Net Saved: </p>
-
-    <!-- income, rent, food, entertainment, pets, misc, vacation -->
-
-
-<button id = "budgetAdder"></button>
-
-
-</div>
 
 
           

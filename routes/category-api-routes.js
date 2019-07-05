@@ -20,7 +20,6 @@ module.exports = function (app) {
     });
   });
 
-
   // PUT route for updating category budget
 
 
@@ -40,17 +39,5 @@ module.exports = function (app) {
 
   });
 
-  // app.put("/api/budget", function(req, res) {
-  //   // Add code here to update a post using the values in req.body, where the id is equal to
-  //   db.post("api/budget", function(req,res) {
-  //     db.CategoryBudget.update(req.body, { where: { id: 1}}).then(function(dbCategoryBudget){
-  //       res.json(dbCategoryBudget);
-  //     });
-  //   });
-  //   // req.body.id and return the result to the user using res.json
-  // });
 
-
-
-  //end module.exports
 };
