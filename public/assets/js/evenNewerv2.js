@@ -105,59 +105,51 @@ $(document).ready(function () {
         console.log("this is chart income", chartIncome)
         console.log("this is goal rent ", goalRent)
 
-        // goalGoal = data[0].goal
-        // goalRent = data[0].rent
-        // goalFood = data[0].food
-        // goalEnt = data[0].entertainment
-        // goalPets = data[0].pets
-        // goalMisc = data[0].misc
+        budgetScreenChart()
 
-
-
-
-        var myConfig = {
-            type: "bar",
-             globals: {
-                 fontSize: 25,
-                 marginTop: 10,
-                 marginBottom: 10,
-                 paddingBottom: 10,
-                 fontFamily: "Quicksand, sans-serif",
-                 color: "#040130"
-               },
-            plot:{
-              stacked:true,
-              stackType:"normal"
-            },
-            scaleX: {
-                label:{
-                  text:"Current Spending by Budget Categories"
-                },
-                labels:["Rent","Food","Entertainment","Pets","Misc"] 
-              },
-            series:[
-              {
-                //this is the top color (full budget)
-                values:[goalRent, goalFood, goalEnt, goalPets, goalMisc],
-                backgroundColor:"#29B6F6",
-                alpha:1
-              },
-              {
-                //this is the bottom color (amount spent so far)
-                values:[chartRent,chartFood,chartEntertainment,chartPets,chartMisc],
-                backgroundColor:"#040130",
-                alpha:1
-              },
+        // var myConfig = {
+        //     type: "bar",
+        //      globals: {
+        //          fontSize: 25,
+        //          marginTop: 10,
+        //          marginBottom: 10,
+        //          paddingBottom: 10,
+        //          fontFamily: "Quicksand, sans-serif",
+        //          color: "#040130"
+        //        },
+        //     plot:{
+        //       stacked:true,
+        //       stackType:"normal"
+        //     },
+        //     scaleX: {
+        //         label:{
+        //           text:"Current Spending by Budget Categories"
+        //         },
+        //         labels:["Rent","Food","Entertainment","Pets","Misc"] 
+        //       },
+        //     series:[
+        //       {
+        //         //this is the top color (full budget)
+        //         values:[goalRent, goalFood, goalEnt, goalPets, goalMisc],
+        //         backgroundColor:"#29B6F6",
+        //         alpha:1
+        //       },
+        //       {
+        //         //this is the bottom color (amount spent so far)
+        //         values:[chartRent,chartFood,chartEntertainment,chartPets,chartMisc],
+        //         backgroundColor:"#040130",
+        //         alpha:1
+        //       },
              
-            ]
-          };
+        //     ]
+        //   };
           
-          zingchart.render({ 
-              id : 'myChart', 
-              data : myConfig, 
-              height: "100%", 
-              width: "100%" 
-          });
+        //   zingchart.render({ 
+        //       id : 'myChart', 
+        //       data : myConfig, 
+        //       height: "100%", 
+        //       width: "100%" 
+        //   });
         
         
         //TODO: THIS IS THE ZING CHART FOR THE HOME PAGE
@@ -540,4 +532,50 @@ function updatePost(catBudget) {
 
 
 
-  
+function budgetScreenChart(){
+    var myConfig = {
+        type: "bar",
+         globals: {
+             fontSize: 25,
+             marginTop: 10,
+             marginBottom: 10,
+             paddingBottom: 10,
+             fontFamily: "Quicksand, sans-serif",
+             color: "#040130"
+           },
+        plot:{
+          stacked:true,
+          stackType:"normal"
+        },
+        scaleX: {
+            label:{
+              text:"Current Spending by Budget Categories"
+            },
+            labels:["Rent","Food","Entertainment","Pets","Misc"] 
+          },
+        series:[
+          {
+            //this is the top color (full budget)
+            values:[goalRent, goalFood, goalEnt, goalPets, goalMisc],
+            backgroundColor:"#29B6F6",
+            alpha:1
+          },
+          {
+            //this is the bottom color (amount spent so far)
+            values:[chartRent,chartFood,chartEntertainment,chartPets,chartMisc],
+            backgroundColor:"#040130",
+            alpha:1
+          },
+         
+        ]
+      };
+      
+      zingchart.render({ 
+          id : 'myChart', 
+          data : myConfig, 
+          height: "100%", 
+          width: "100%" 
+      });
+
+
+}
