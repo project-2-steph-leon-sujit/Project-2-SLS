@@ -309,6 +309,37 @@ $(document).ready(function() {
           $("#miscBudget").val("");
   
   });
+
+  $("#edit-budget-submit").on("click", function(event){
+    event.preventDefault();
+    console.log("edit button has been clicked!");
+
+    var editBudget = {
+        income: $("#incomeBudget").val(),
+        goal: $("#savingsBudget").val(),
+        rent: $("#rentBudget").val(),
+        food: $("#foodBudget").val(),
+        entertainment: $("#entBudget").val(),
+        pets: $("#petsBudget").val(),
+        misc: $("#miscBudget").val()
+       }
+
+    console.log(editBudget);
+    updatePost(editBudget);
+
+
+        //reset form values 
+        $("#incomeBudget").val("");
+        $("#savingsBudget").val("");
+        $("#rentBudget").val("");
+        $("#foodBudget").val("");
+        $("#entBudget").val("");
+        $("#petsBudget").val("");
+        $("#miscBudget").val("");
+
+});
+
+
   
   //TODO: ========= add a create function so that the jquery stuff in the getCats() function isn't inside a button click =========
   
@@ -353,7 +384,7 @@ $(document).ready(function() {
         data: catBudget
       })
         .then(function() {
-          window.location.href = "/blog";
+          location.reload();
         });
     }
   
