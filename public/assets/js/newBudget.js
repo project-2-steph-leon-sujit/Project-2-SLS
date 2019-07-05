@@ -224,6 +224,7 @@ $(document).ready(function () {
     chartIncome = incomeSum
 
     //This takes total income minus expenses
+    netExpense = (rentSum+foodSum+entertainmentSum+petsSum+miscSum+vacationSum)
     netBudget = incomeSum - (rentSum+foodSum+entertainmentSum+petsSum+miscSum)
     //TODO: *****STEPH**** You can use these variables information to display the sum of each category
     console.log("Sum of income", incomeSum);

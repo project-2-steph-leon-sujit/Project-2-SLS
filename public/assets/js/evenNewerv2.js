@@ -23,7 +23,6 @@ $(document).ready(function () {
     budgetCategorySelect.on("change", handleCategoryChange); //need to write 'handleCategoryChange'
 
 
-
     // -----------------------------Getting the initial list of budgets and categories----------------------------
     getBudgets();
     showCats();
@@ -96,11 +95,15 @@ $(document).ready(function () {
                 console.log("this is goal rent ", goalRent)
 
 
-                //TODO: -----------The two charts will run here----------
+                //TODO: -----------The two charts will run here. Any chart we use can be put in here----------
+                            //TODO:Variables for spent is:  chartIncome//chartRent//chartFood//chartEntertainment//chartPets//chartMisc
+                            //TODO:Variables for budget is: goalIncome//goalRent//goalFood//goalEnt//goalPets//goalMisc // goalGoal
+                          
+                
                 budgetScreenChart();
                 homeScreenChart();
 
-                //TODO: -----------The two charts will run here----------
+                //TODO: -----------The two charts will run here----------------------------------------------
 
             //!----------------TEST BOX-----------------------------------------
             })
@@ -126,18 +129,10 @@ $(document).ready(function () {
         var budgetsToAdd = [];
         for (var i = 0; i < budgets.length; i++) {
             budgetsToAdd.push(createNewRow(budgets[i]));
-
-            console.log("this is budgets Leon", budgets);
-
-
-
+            // console.log("this is budgets Leon", budgets);
         }
         budgetContainer.append(budgetsToAdd);
 
-
-        // budgetAdder();
-        // console.log("budgets adding. Function initializeRows is working");
-        // console.log("current budgetsToAdd. It's working!", budgetsToAdd);
     }
 
     // This function constructs a budget's HTML
@@ -159,7 +154,7 @@ $(document).ready(function () {
         editBtn.text("Update");
         editBtn.addClass("up-button btn btn-sm m-0");
         newTr.append(deleteBtn);
-        newTr.append(editBtn);
+        // newTr.append(editBtn);
 
         return newTr;
     }
@@ -222,11 +217,11 @@ $(document).ready(function () {
         chartPets = petsSum
         chartMisc = miscSum
         chartVacation = vacationSum
-   
 
         //This takes total income minus expenses. 'netBudget' is used for home page Zyng Chart
-        netBudget = incomeSum - (rentSum + foodSum + entertainmentSum + petsSum + miscSum)
-  
+        netBudget = incomeSum - (rentSum + foodSum + entertainmentSum + petsSum + miscSum);
+        netExpenses = (rentSum+foodSum+entertainmentSum+petsSum+miscSum);
+
         $("#incSum").append(incomeSum);
         $("#rentSum").append(rentSum)
         $("#foodSum").append(foodSum);
@@ -268,8 +263,6 @@ $("#create-budget-submit").on("click", function (event) {
     $("#entBudget").val("");
     $("#petsBudget").val("");
     $("#miscBudget").val("");
-
-
 
 });
 
@@ -337,6 +330,7 @@ function showCats(budget) {
         insertMisc.text("$" + data[0].misc);
 
         goalGoal = data[0].goal
+        goalIncome = data[0].income
         goalRent = data[0].rent
         goalFood = data[0].food
         goalEnt = data[0].entertainment
@@ -406,9 +400,7 @@ function budgetScreenChart() {
 
 
 function homeScreenChart() {
-
-
-    var saved = 700;
+// var saved = 700;
 
     var myConfig2 = {
         type: "gauge",
@@ -509,3 +501,4 @@ function homeScreenChart() {
         width: '100%'
     });
 }
+
