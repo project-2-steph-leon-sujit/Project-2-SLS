@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-sessions": "^1.0.6",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.3.0",
     "moment": "^2.24.0",
     "mysql2": "^1.6.5",
     "nodemon": "^1.19.1",
